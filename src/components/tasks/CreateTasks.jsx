@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTasks } from "src/store/actions/taskActions";
 import "src/components/tasks/CreateTasks.component.scss";
 
-const CreateTasks = ({ id, setId, show, onShow }) => {
+const CreateTasks = ({ show, onShow }) => {
   const dispatch = useDispatch();
   const [task, setTask] = useState("");
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   const handleChange = (e) => {
     setTask(e.target.value);
@@ -28,7 +33,6 @@ const CreateTasks = ({ id, setId, show, onShow }) => {
         })
       );
       setTask("");
-      setId(id + 1);
       onShow(!show);
     }
   };
@@ -40,6 +44,7 @@ const CreateTasks = ({ id, setId, show, onShow }) => {
         onChange={(e) => handleChange(e)}
         className="task-input"
         value={task}
+        ref={inputRef}
       />
       <button className="add-btn" onClick={add}>
         Add

@@ -1,4 +1,5 @@
 import addicon from "src/assets/images/add.png";
+import "src/components/tasks/CreateButton.scss";
 
 const CreateButton = ({ show, onShow }) => {
   const handleButtonClick = () => {

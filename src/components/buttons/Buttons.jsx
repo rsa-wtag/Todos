@@ -13,7 +13,7 @@ const Buttons = () => {
         <img src={pen} alt="Edit task" />
       </button>
       <button className="removeStyles">
-        <img src={bin} alt="MDelete task" />
+        <img src={bin} alt="Delete task" />
       </button>
     </>
   );

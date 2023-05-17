@@ -4,7 +4,7 @@ import "src/components/tasks/TaskItems.component.scss";
 
 const TaskItems = () => {
   const tasks = useSelector((state) => state.todos);
-  const sortedTasks = [...tasks].sort((a, b) => b.id - a.id);
+  const sortedTasks = [...tasks].reverse();
   return (
     <>
       <ul className="task-list">
