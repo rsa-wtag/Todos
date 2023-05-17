@@ -1,23 +1,26 @@
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
+import Buttons from "src/components/buttons/Buttons";
+import "src/components/tasks/TaskItems.component.scss";
 
-const mapStateToProps = (state) => {
-  return {
-    tasks: state,
-  };
-};
-
-const TaskItems = (props) => {
-  const sortedTasks = [...props.tasks].sort((a, b) => b.id - a.id);
+const TaskItems = () => {
+  const tasks = useSelector((state) => state.todos);
+  const sortedTasks = [...tasks].sort((a, b) => b.id - a.id);
   return (
-    <div>
-      <ul>
+    <>
+      <ul className="task-list">
         {sortedTasks.length > 0 &&
-          sortedTasks.map((task) => {
-            return <li key={task.id}>{task.item}</li>;
+          sortedTasks.map((task, i) => {
+            return (
+              <li key={i} className="task-item">
+                <h3>{task.content}</h3>
+                <p>Created At: {task.createdAt}</p>
+                <Buttons />
+              </li>
+            );
           })}
       </ul>
-    </div>
+    </>
   );
 };
 
-export default connect(mapStateToProps)(TaskItems);
+export default TaskItems;

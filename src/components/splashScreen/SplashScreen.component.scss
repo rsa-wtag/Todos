@@ -1,0 +1,15 @@
+@import "src/assets/styles/_variables.scss";
+
+.centered-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .splash-text {
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 112px;
+    color: $primaryColor;
+  }
+}

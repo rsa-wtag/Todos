@@ -1,0 +1,22 @@
+@import "src/assets/styles/_variables.scss";
+
+.navbar {
+  background-color: #ffffff;
+  color: $primaryColor;
+  padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+
+  .navbar-logo {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+
+    img {
+      width: 30%;
+      padding: 10px;
+    }
+  }
+}
