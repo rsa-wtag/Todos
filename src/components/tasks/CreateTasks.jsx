@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTasks } from "src/store/actions/taskActions";
 import "src/components/tasks/CreateTasks.component.scss";
+import { v4 as uuidv4 } from "uuid";
 
 const CreateTasks = ({ show, onShow }) => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const CreateTasks = ({ show, onShow }) => {
         .replace(/\//g, ".");
       dispatch(
         addTasks({
+          id: uuidv4(),
           content: task,
           createdAt: formattedDate,
           is_done: false,
