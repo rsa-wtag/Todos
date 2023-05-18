@@ -3,10 +3,10 @@ import Content from "src/components/content/Content";
 
 const Body = () => {
   return (
-    <div>
+    <Fragment>
       <Navbar />
       <Content />
-    </div>
+    </Fragment>
   );
 };
 
