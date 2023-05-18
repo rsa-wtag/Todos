@@ -10,6 +10,7 @@ function App() {
       setIsLoading(false);
     }, 1000);
   }, []);
+
   return <div className="App">{isLoading ? <SplashScreen /> : <Body />}</div>;
 }
 
