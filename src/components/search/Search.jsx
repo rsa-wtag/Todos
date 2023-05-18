@@ -1,10 +1,10 @@
-import search from "src/assets/images/search.png";
+import { SEARCH_ICON } from "src/utils/constants/constants";
 import "src/components/search/Search.component.scss";
 
 const Search = () => {
   return (
     <div className="search">
-      <img src={search} alt="Search" />
+      <img src={SEARCH_ICON} alt="Search" />
     </div>
   );
 };

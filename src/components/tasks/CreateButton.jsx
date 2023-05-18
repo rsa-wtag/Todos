@@ -1,4 +1,4 @@
-import addicon from "src/assets/images/add.png";
+import { ADD_ICON } from "src/utils/constants/constants";
 import "src/components/tasks/CreateButton.scss";
 
 const CreateButton = ({ show, onShow }) => {
@@ -7,11 +7,9 @@ const CreateButton = ({ show, onShow }) => {
   };
 
   return (
-    <>
-      <button className="create-button" onClick={handleButtonClick}>
-        <img src={addicon} alt="Add Task Button" /> Create
-      </button>
-    </>
+    <button className="create-button" onClick={handleButtonClick}>
+      <img src={ADD_ICON} alt="Add Task Button" /> Create
+    </button>
   );
 };
 

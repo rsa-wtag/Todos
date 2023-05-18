@@ -1,21 +1,13 @@
-import mark from "src/assets/images/mark.png";
-import pen from "src/assets/images/pen.png";
-import bin from "src/assets/images/bin.png";
-import "src/components/buttons/Buttons.component.scss";
+import { MARK_ICON, PEN_ICON, BIN_ICON } from "src/utils/constants/constants";
+import { createButton } from "src/utils/helpers/createButton";
 
 const Buttons = () => {
   return (
-    <>
-      <button className="removeStyles">
-        <img src={mark} alt="Mark task as done" />
-      </button>
-      <button className="removeStyles">
-        <img src={pen} alt="Edit task" />
-      </button>
-      <button className="removeStyles">
-        <img src={bin} alt="Delete task" />
-      </button>
-    </>
+    <div>
+      {createButton(MARK_ICON, "Mark task as done")}
+      {createButton(PEN_ICON, "Edit task")}
+      {createButton(BIN_ICON, "Delete task")}
+    </div>
   );
 };
 
