@@ -6,6 +6,14 @@ import navLogo from "src/assets/images/nav-logo.png";
 import search from "src/assets/images/search.png";
 import addicon from "src/assets/images/add.png";
 
+export const MARK_TEXT = "Mark task as done";
+export const EDIT_TEXT = "Edit task";
+export const DELETE_TEXT = "Delete task";
+export const LOGO_TEXT = "Logo";
+export const SEARCH_TEXT = "Search";
+export const NAV_LOGO_TEXT = "Logo";
+
+
 export const [
   MARK_ICON,
   PEN_ICON,
