@@ -1,12 +1,12 @@
 import { MARK_ICON, PEN_ICON, BIN_ICON } from "src/utils/constants/constants";
-import { createButton } from "src/utils/helpers/createButton";
+import { ButtonCreator } from "../buttonCreator/ButtonCreator";
 
 const Buttons = () => {
   return (
     <div>
-      {createButton(MARK_ICON, "Mark task as done")}
-      {createButton(PEN_ICON, "Edit task")}
-      {createButton(BIN_ICON, "Delete task")}
+      <ButtonCreator icon={MARK_ICON} altText={"Mark task as done"} />
+      <ButtonCreator icon={PEN_ICON} altText={"Edit task"} />
+      <ButtonCreator icon={BIN_ICON} altText={"Delete task"} />
     </div>
   );
 };
