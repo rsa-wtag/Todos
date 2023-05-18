@@ -1,10 +1,10 @@
-import logo from "src/assets/images/logo.png";
+import { LOGO } from "src/utils/constants/constants";
 import "src/components/splashScreen/SplashScreen.component.scss";
 
 const SplashScreen = () => {
   return (
     <div className="centered-element">
-      <img src={logo} alt="Logo" />
+      <img src={LOGO} alt="Logo" />
       <h1 className="splash-text">Todos</h1>
     </div>
   );
