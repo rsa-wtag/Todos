@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { addTasks } from "src/store/actions/taskActions";
 import "src/components/tasks/CreateTasks.component.scss";
 import { createDate } from "src/utils/helpers/createDate";
+import PropTypes from "prop-types";
 
 const CreateTasks = ({ show, onShow }) => {
   const dispatch = useDispatch();
@@ -46,6 +47,11 @@ const CreateTasks = ({ show, onShow }) => {
       </button>
     </div>
   );
+};
+
+CreateTasks.propTypes = {
+  show: PropTypes.bool.isRequired,
+  onShow: PropTypes.func.isRequired,
 };
 
 export default CreateTasks;

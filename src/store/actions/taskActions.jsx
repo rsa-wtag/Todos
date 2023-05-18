@@ -1,8 +1,7 @@
 import { ADD_TASK } from "src/store";
-import { v4 as uuidv4 } from "uuid";
 
 export const addTasks = (task) => {
-  task.id = uuidv4();
+  task.id = `id-${Math.random().toString(36).substr(2, 9)}-${Date.now()}`;
   task.is_done = false;
 
   return {
