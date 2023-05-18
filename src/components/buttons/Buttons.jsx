@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   MARK_ICON,
   PEN_ICON,
@@ -10,11 +11,11 @@ import { ButtonCreator } from "../buttonCreator/ButtonCreator";
 
 const Buttons = () => {
   return (
-    <div>
+    <Fragment>
       <ButtonCreator icon={MARK_ICON} altText={MARK_TEXT} />
       <ButtonCreator icon={PEN_ICON} altText={EDIT_TEXT} />
       <ButtonCreator icon={BIN_ICON} altText={DELETE_TEXT} />
-    </div>
+    </Fragment>
   );
 };
 
