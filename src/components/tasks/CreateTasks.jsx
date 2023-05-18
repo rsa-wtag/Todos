@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTasks } from "src/store/actions/taskActions";
-import "src/components/tasks/CreateTasks.component.scss";
-import { createDate } from "src/utils/helpers/createDate";
 import PropTypes from "prop-types";
+import "src/components/tasks/CreateTasks.component.scss";
+import { addTasks } from "src/store/actions/taskActions";
+import { createDate } from "src/utils/helpers/createDate";
 
 const CreateTasks = ({ show, onShow }) => {
   const dispatch = useDispatch();

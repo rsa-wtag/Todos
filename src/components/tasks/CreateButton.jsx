@@ -1,6 +1,6 @@
-import { ADD_ICON } from "src/utils/constants/constants";
-import "src/components/tasks/CreateButton.scss";
 import PropTypes from "prop-types";
+import "src/components/tasks/CreateButton.scss";
+import { ADD_ICON } from "src/utils/constants/constants";
 
 const CreateButton = ({ show, onShow }) => {
   const handleButtonClick = () => {

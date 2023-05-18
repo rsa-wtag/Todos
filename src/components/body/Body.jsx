@@ -1,6 +1,6 @@
+import { Fragment } from "react";
 import Navbar from "src/components/navbar/Navbar";
 import Content from "src/components/content/Content";
-import { Fragment } from "react";
 
 const Body = () => {
   return (

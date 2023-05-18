@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import Buttons from "src/components/buttons/Buttons";
 import "src/components/tasks/TaskItems.component.scss";
+import Buttons from "src/components/buttons/Buttons";
 
 const TaskItems = () => {
   const tasks = useSelector((state) => state.todos);

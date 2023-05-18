@@ -1,5 +1,5 @@
-import { SEARCH_ICON, SEARCH_TEXT } from "src/utils/constants/constants";
 import "src/components/search/Search.component.scss";
+import { SEARCH_ICON, SEARCH_TEXT } from "src/utils/constants/constants";
 
 const Search = () => {
   return (

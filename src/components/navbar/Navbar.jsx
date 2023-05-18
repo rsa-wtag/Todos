@@ -1,6 +1,6 @@
+import "src/components/navbar/Navbar.component.scss";
 import { NAV_LOGO, NAV_LOGO_TEXT } from "src/utils/constants/constants";
 import Search from "src/components/search/Search";
-import "src/components/navbar/Navbar.component.scss";
 
 const Navbar = () => {
   return (

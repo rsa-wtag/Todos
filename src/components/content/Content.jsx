@@ -1,7 +1,7 @@
+import { useState } from "react";
+import "src/components/content/Content.component.scss";
 import CreateTasks from "src/components/tasks/CreateTasks";
 import TaskItems from "src/components/tasks/TaskItems";
-import "src/components/content/Content.component.scss";
-import { useState } from "react";
 import CreateButton from "src/components/tasks/CreateButton";
 
 const Content = () => {
