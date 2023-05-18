@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTasks } from "src/store/actions/taskActions";
 import "src/components/tasks/CreateTasks.component.scss";
+import { createDate } from "src/utils/helpers/createDate";
 
 const CreateTasks = ({ show, onShow }) => {
   const dispatch = useDispatch();
@@ -20,15 +21,10 @@ const CreateTasks = ({ show, onShow }) => {
     if (task === "") {
       return;
     } else {
-      const currentDate = new Date();
-      const options = { day: "2-digit", month: "2-digit", year: "2-digit" };
-      const formattedDate = currentDate
-        .toLocaleDateString("en-UK", options)
-        .replace(/\//g, ".");
       dispatch(
         addTasks({
           content: task,
-          createdAt: formattedDate,
+          createdAt: createDate(),
         })
       );
       setTask("");
