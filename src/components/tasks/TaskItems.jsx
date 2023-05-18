@@ -14,7 +14,7 @@ const TaskItems = () => {
             <li key={task.id} className="task-item">
               <h3>{task.content}</h3>
               <p>Created At: {task.createdAt}</p>
-              <Buttons />
+              <Buttons id={task.id} />
             </li>
           );
         })}
