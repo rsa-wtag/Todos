@@ -3,10 +3,10 @@
 .navbar {
   background-color: #ffffff;
   color: $primary-color;
-  padding: 20px 10%;
+  padding: 0.313rem 12.5rem;
   display: flex;
   justify-content: space-between;
-  height: 50px;
+  height: 3.125rem;
 
   .navbar-logo {
     display: flex;
@@ -15,8 +15,8 @@
     flex-direction: column-reverse;
 
     img {
-      width: 30%;
-      padding: 10px;
+      width: 1.875rem;
+      padding-right: 0.625rem;
     }
   }
 }
