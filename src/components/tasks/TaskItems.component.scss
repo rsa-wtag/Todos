@@ -1,18 +1,18 @@
 @import "src/assets/styles/_variables.scss";
 
 .task-list {
-  list-style-type: none;
   display: flex;
+  list-style-type: none;
   padding-inline-start: 0rem;
 
   .task-item {
-    box-sizing: border-box;
     background: $color-white;
-    border: 0.063rem solid $border-color;
+    border: 0.063rem solid $color-border;
     border-radius: 0.313rem;
-    width: 21.875rem;
+    box-sizing: border-box;
     height: 13rem;
     margin: 0.625rem 0.625rem 0.625rem 0rem;
     padding: 0.625rem;
+    width: 21.875rem;
   }
 }
