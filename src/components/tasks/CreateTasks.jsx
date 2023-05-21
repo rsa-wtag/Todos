@@ -3,9 +3,8 @@ import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import "src/components/tasks/CreateTasks.component.scss";
 import { addTasks } from "src/store/actions/taskActions";
-import { createDate } from "src/utils/helpers/createDate";
 
-const CreateTasks = ({ show, onShow }) => {
+const CreateTasks = ({ showTask, onShow }) => {
   const dispatch = useDispatch();
   const [task, setTask] = useState("");
   const inputRef = useRef(null);
@@ -20,16 +19,15 @@ const CreateTasks = ({ show, onShow }) => {
     setTask(event.target.value);
   }
 
-  function add() {
+  function handleAddTask() {
     if (task) {
       dispatch(
         addTasks({
           content: task,
-          createdAt: createDate(),
         })
       );
       setTask("");
-      onShow(!show);
+      onShow(!showTask);
     }
   }
 
@@ -42,13 +40,13 @@ const CreateTasks = ({ show, onShow }) => {
         value={task}
         ref={inputRef}
       />
-      <button onClick={add}>Add</button>
+      <button onClick={handleAddTask}>Add</button>
     </Fragment>
   );
 };
 
 CreateTasks.propTypes = {
-  show: PropTypes.bool.isRequired,
+  showTask: PropTypes.bool.isRequired,
   onShow: PropTypes.func.isRequired,
 };
 

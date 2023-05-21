@@ -10,8 +10,8 @@ const Content = () => {
   return (
     <div className="content">
       <h1>Add Tasks</h1>
-      <CreateButton show={show} onShow={setShow} />
-      {show && <CreateTasks show={show} onShow={setShow} />}
+      <CreateButton showTask={show} onShow={setShow} />
+      {show && <CreateTasks showTask={show} onShow={setShow} />}
       <TaskItems />
     </div>
   );

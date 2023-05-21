@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import "src/components/tasks/CreateButton.scss";
 import { ADD_ICON } from "src/utils/constants/constants";
 
-const CreateButton = ({ show, onShow }) => {
+const CreateButton = ({ showTask, onShow }) => {
   function toggleShow() {
-    onShow(!show);
+    onShow(!showTask);
   }
 
   return (
@@ -15,7 +15,7 @@ const CreateButton = ({ show, onShow }) => {
 };
 
 CreateButton.propTypes = {
-  show: PropTypes.bool.isRequired,
+  showTask: PropTypes.bool.isRequired,
   onShow: PropTypes.func.isRequired,
 };
 
