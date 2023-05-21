@@ -7,7 +7,9 @@ const TaskItems = () => {
 
   return (
     <ul className="task-list">
-      {tasks.length > 0 && <TaskBoard tasks={tasks} />}
+      {tasks.map((task) => {
+        return <TaskBoard key={task.id} task={task} />;
+      })}
     </ul>
   );
 };

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import "src/components/tasks/CreateTasks.component.scss";
 import { addTasks } from "src/store/actions/taskActions";
+import sanitizeInput from "src/utils/helpers/sanitizeInput";
 
 const CreateTasks = ({ showTask, onShow }) => {
   const dispatch = useDispatch();
@@ -16,15 +17,16 @@ const CreateTasks = ({ showTask, onShow }) => {
   useEffect(focusInputRef, []);
 
   function handleChange(event) {
-    setTask(event.target.value);
+    const sanitizedValue = sanitizeInput(event.target.value);
+    setTask(sanitizedValue);
   }
 
   function handleAddTask() {
-    if (task) {
+    if (task.trim()) {
       dispatch(addTasks(task));
-      setTask("");
       onShow(!showTask);
     }
+    setTask("");
   }
 
   return (

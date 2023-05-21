@@ -4,7 +4,7 @@ import { ADD_ICON } from "src/utils/constants/constants";
 
 const CreateButton = ({ showTask, onShow }) => {
   function toggleShow() {
-    onShow(!showTask);
+    onShow((showTask) => !showTask);
   }
 
   return (
