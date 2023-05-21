@@ -2,21 +2,21 @@
 
 .navbar {
   background-color: $color-white;
-  color: $primary-color;
-  padding: 0.313rem 12.5rem;
+  color: $color-primary;
   display: flex;
-  justify-content: space-between;
   height: 3.125rem;
+  justify-content: space-between;
+  padding: 0.313rem 12.5rem;
 
-  .navbar-logo {
+  &__logo {
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
     flex-direction: column-reverse;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 
-    img {
-      width: 1.875rem;
+    &-img {
       padding-right: 0.625rem;
+      width: 1.875rem;
     }
   }
 }

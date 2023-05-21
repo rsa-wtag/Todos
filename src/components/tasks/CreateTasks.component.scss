@@ -1,12 +1,12 @@
 @import "src/assets/styles/_variables.scss";
 
 .task-input {
-  box-sizing: border-box;
   background: $color-white;
-  border: 0.063rem solid $border-color;
+  border: 0.063rem solid $color-border;
   border-radius: 0.313rem;
-  width: 21.875rem;
+  box-sizing: border-box;
   height: 13rem;
   margin: 0.625rem 0.625rem 0.625rem 0rem;
   padding: 0.625rem;
+  width: 21.875rem;
 }

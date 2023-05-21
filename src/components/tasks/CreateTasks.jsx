@@ -1,56 +1,48 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTasks } from "src/store/actions/taskActions";
-import "src/components/tasks/CreateTasks.component.scss";
-import { createDate } from "src/utils/helpers/createDate";
 import PropTypes from "prop-types";
+import "src/components/tasks/CreateTasks.component.scss";
+import { addTasks } from "src/store/actions/taskActions";
 
-const CreateTasks = ({ show, onShow }) => {
+const CreateTasks = ({ showTask, onShow }) => {
   const dispatch = useDispatch();
   const [task, setTask] = useState("");
   const inputRef = useRef(null);
 
-  useEffect(() => {
+  function focusInputRef() {
     inputRef.current.focus();
-  }, []);
+  }
 
-  const handleChange = (e) => {
-    setTask(e.target.value);
-  };
+  useEffect(focusInputRef, []);
 
-  const add = () => {
-    if (task === "") {
-      return;
-    } else {
-      dispatch(
-        addTasks({
-          content: task,
-          createdAt: createDate(),
-        })
-      );
+  function handleChange(event) {
+    setTask(event.target.value);
+  }
+
+  function handleAddTask() {
+    if (task) {
+      dispatch(addTasks(task));
       setTask("");
-      onShow(!show);
+      onShow(!showTask);
     }
-  };
+  }
 
   return (
-    <div className="addTasks">
+    <Fragment>
       <input
         type="text"
-        onChange={(e) => handleChange(e)}
+        onChange={handleChange}
         className="task-input"
         value={task}
         ref={inputRef}
       />
-      <button className="add-btn" onClick={add}>
-        Add
-      </button>
-    </div>
+      <button onClick={handleAddTask}>Add</button>
+    </Fragment>
   );
 };
 
 CreateTasks.propTypes = {
-  show: PropTypes.bool.isRequired,
+  showTask: PropTypes.bool.isRequired,
   onShow: PropTypes.func.isRequired,
 };
 

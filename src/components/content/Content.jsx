@@ -1,17 +1,17 @@
+import { useState } from "react";
+import "src/components/content/Content.component.scss";
 import CreateTasks from "src/components/tasks/CreateTasks";
 import TaskItems from "src/components/tasks/TaskItems";
-import "src/components/content/Content.component.scss";
-import { useState } from "react";
 import CreateButton from "src/components/tasks/CreateButton";
 
 const Content = () => {
-  const [show, setShow] = useState(false);
+  const [showTask, setShowTask] = useState(false);
 
   return (
     <div className="content">
       <h1>Add Tasks</h1>
-      <CreateButton show={show} onShow={setShow} />
-      {show && <CreateTasks show={show} onShow={setShow} />}
+      <CreateButton showTask={showTask} onShow={setShowTask} />
+      {showTask && <CreateTasks showTask={showTask} onShow={setShowTask} />}
       <TaskItems />
     </div>
   );

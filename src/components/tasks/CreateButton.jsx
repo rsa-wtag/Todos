@@ -1,21 +1,21 @@
-import { ADD_ICON } from "src/utils/constants/constants";
-import "src/components/tasks/CreateButton.scss";
 import PropTypes from "prop-types";
+import "src/components/tasks/CreateButton.scss";
+import { ADD_ICON } from "src/utils/constants/constants";
 
-const CreateButton = ({ show, onShow }) => {
-  const handleButtonClick = () => {
-    onShow(!show);
-  };
+const CreateButton = ({ showTask, onShow }) => {
+  function toggleShow() {
+    onShow(!showTask);
+  }
 
   return (
-    <button className="create-button" onClick={handleButtonClick}>
+    <button className="create-button" onClick={toggleShow}>
       <img src={ADD_ICON} alt="Add Task Button" /> Create
     </button>
   );
 };
 
 CreateButton.propTypes = {
-  show: PropTypes.bool.isRequired,
+  showTask: PropTypes.bool.isRequired,
   onShow: PropTypes.func.isRequired,
 };
 

@@ -1,20 +1,26 @@
-import { useDispatch, useSelector } from "react-redux";
-import { deleteTask } from "src/store/actions/taskActions";
 import { BIN_ICON } from "src/utils/constants/constants";
-import { createButton } from "src/utils/helpers/createButton";
+import { DELETE_TEXT } from "src/utils/constants/constants";
+import { ButtonCreator } from "../buttonCreator/ButtonCreator";
+import { REMOVE_TASK } from "src/store";
+import PropTypes from "prop-types";
 
-const Delete = (taskId) => {
-  const tasks = useSelector((state) => state.todos);
-  const dispatch = useDispatch();
-  function handleDeleteTask(taskId) {
-    dispatch(deleteTask(taskId.taskId));
-  }
+const Delete = ({ taskId }) => {
+  const taskType = REMOVE_TASK;
 
   return (
     <div>
-      {createButton(() => handleDeleteTask(taskId), BIN_ICON, "Delete task")}
+      <ButtonCreator
+        taskType={taskType}
+        taskId={taskId}
+        icon={BIN_ICON}
+        altText={DELETE_TEXT}
+      />
     </div>
   );
+};
+
+Delete.propTypes = {
+  taskId: PropTypes.string.isRequired,
 };
 
 export default Delete;
