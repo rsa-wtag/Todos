@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import "src/components/tasks/CreateTasks.component.scss";
@@ -34,7 +34,7 @@ const CreateTasks = ({ show, onShow }) => {
   }
 
   return (
-    <div className="addTasks">
+    <Fragment>
       <input
         type="text"
         onChange={handleChange}
@@ -45,7 +45,7 @@ const CreateTasks = ({ show, onShow }) => {
       <button className="add-btn" onClick={add}>
         Add
       </button>
-    </div>
+    </Fragment>
   );
 };
 
