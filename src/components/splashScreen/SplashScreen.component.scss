@@ -1,12 +1,12 @@
 @import "src/assets/styles/_variables.scss";
 
-.centered-element {
+.splash {
   align-items: center;
   display: flex;
   height: 54rem;
   justify-content: center;
 
-  .splash-text {
+  &__text {
     color: $color-primary;
     font-size: 6rem;
     font-weight: 700;

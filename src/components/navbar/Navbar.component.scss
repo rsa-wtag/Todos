@@ -8,13 +8,13 @@
   justify-content: space-between;
   padding: 0.313rem 12.5rem;
 
-  .navbar-logo {
+  &__logo {
     display: flex;
     flex-direction: column-reverse;
     flex-wrap: wrap;
     justify-content: space-evenly;
 
-    .navbar-img {
+    &-img {
       padding-right: 0.625rem;
       width: 1.875rem;
     }

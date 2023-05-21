@@ -5,8 +5,8 @@ import Search from "src/components/search/Search";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <div className="navbar-logo">
-        <img src={NAV_LOGO} alt={NAV_LOGO_TEXT} className="navbar-img" />
+      <div className="navbar__logo">
+        <img src={NAV_LOGO} alt={NAV_LOGO_TEXT} className="navbar__logo-img" />
         <h1>Todos</h1>
       </div>
 

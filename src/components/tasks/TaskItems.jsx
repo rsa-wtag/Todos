@@ -11,7 +11,7 @@ const TaskItems = () => {
       {sortedTasks.length > 0 &&
         sortedTasks.map((task) => {
           return (
-            <li key={task.id} className="task-item">
+            <li key={task.id} className="task-list__item">
               <h3>{task.content}</h3>
               <p>Created At: {task.createdAt}</p>
               <Buttons />

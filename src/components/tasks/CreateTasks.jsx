@@ -42,9 +42,7 @@ const CreateTasks = ({ show, onShow }) => {
         value={task}
         ref={inputRef}
       />
-      <button className="add-btn" onClick={add}>
-        Add
-      </button>
+      <button onClick={add}>Add</button>
     </Fragment>
   );
 };
