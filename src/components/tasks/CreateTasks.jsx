@@ -21,11 +21,7 @@ const CreateTasks = ({ showTask, onShow }) => {
 
   function handleAddTask() {
     if (task) {
-      dispatch(
-        addTasks({
-          content: task,
-        })
-      );
+      dispatch(addTasks(task));
       setTask("");
       onShow(!showTask);
     }

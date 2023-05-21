@@ -11,7 +11,7 @@ const TaskItems = () => {
         tasks.map((task) => {
           return (
             <li key={task.id} className="task-list__item">
-              <h3>{task.content}</h3>
+              <h3>{task.title}</h3>
               <p>Created At: {task.createdAt}</p>
               <Buttons />
             </li>

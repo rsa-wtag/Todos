@@ -1,13 +1,14 @@
 import { ADD_TASK } from "src/store";
 import { createDate } from "src/utils/helpers/createDate";
 
-export const addTasks = (task) => {
-  task.id = `id-${Math.random().toString(36).substr(2, 9)}-${Date.now()}`;
-  task.isCompleted = false;
-  task.createdAt = createDate();
-
+export const addTasks = (title) => {
   return {
     type: ADD_TASK,
-    payload: task,
+    payload: {
+      id: Date.now().toString(),
+      isCompleted: false,
+      title: title,
+      createdAt: createDate(),
+    },
   };
 };
