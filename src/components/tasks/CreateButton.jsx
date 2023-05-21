@@ -3,12 +3,12 @@ import "src/components/tasks/CreateButton.scss";
 import { ADD_ICON } from "src/utils/constants/constants";
 
 const CreateButton = ({ show, onShow }) => {
-  const handleButtonClick = () => {
+  function toggleShow() {
     onShow(!show);
-  };
+  }
 
   return (
-    <button className="create-button" onClick={handleButtonClick}>
+    <button className="create-button" onClick={toggleShow}>
       <img src={ADD_ICON} alt="Add Task Button" /> Create
     </button>
   );

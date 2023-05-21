@@ -5,6 +5,15 @@ import Body from "src/components/body/Body";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+
+  function setIsLoadingFalse() {
+    setIsLoading(false);
+  }
+
+  function handleTimeout() {
+    setTimeout(setIsLoadingFalse, 1000);
+  }
+  
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);

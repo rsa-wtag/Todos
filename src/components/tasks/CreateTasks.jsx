@@ -10,18 +10,18 @@ const CreateTasks = ({ show, onShow }) => {
   const [task, setTask] = useState("");
   const inputRef = useRef(null);
 
-  useEffect(() => {
+  function focusInputRef() {
     inputRef.current.focus();
-  }, []);
+  }
 
-  const handleChange = (e) => {
-    setTask(e.target.value);
-  };
+  useEffect(focusInputRef, []);
 
-  const add = () => {
-    if (task === "") {
-      return;
-    } else {
+  function handleChange(event) {
+    setTask(event.target.value);
+  }
+
+  function add() {
+    if (task) {
       dispatch(
         addTasks({
           content: task,
@@ -31,13 +31,13 @@ const CreateTasks = ({ show, onShow }) => {
       setTask("");
       onShow(!show);
     }
-  };
+  }
 
   return (
     <div className="addTasks">
       <input
         type="text"
-        onChange={(e) => handleChange(e)}
+        onChange={handleChange}
         className="task-input"
         value={task}
         ref={inputRef}
