@@ -3,7 +3,7 @@ import { createDate } from "src/utils/helpers/createDate";
 
 export const addTasks = (task) => {
   task.id = `id-${Math.random().toString(36).substr(2, 9)}-${Date.now()}`;
-  task.is_done = false;
+  task.isCompleted = false;
   task.createdAt = createDate();
 
   return {

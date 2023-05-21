@@ -4,12 +4,11 @@ import Buttons from "src/components/buttons/Buttons";
 
 const TaskItems = () => {
   const tasks = useSelector((state) => state.todos);
-  const sortedTasks = [...tasks].reverse();
 
   return (
     <ul className="task-list">
-      {sortedTasks.length > 0 &&
-        sortedTasks.map((task) => {
+      {tasks.length > 0 &&
+        tasks.map((task) => {
           return (
             <li key={task.id} className="task-list__item">
               <h3>{task.content}</h3>
