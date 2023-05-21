@@ -5,13 +5,13 @@ import TaskItems from "src/components/tasks/TaskItems";
 import CreateButton from "src/components/tasks/CreateButton";
 
 const Content = () => {
-  const [show, setShow] = useState(false);
+  const [showTask, setShowTask] = useState(false);
 
   return (
     <div className="content">
       <h1>Add Tasks</h1>
-      <CreateButton showTask={show} onShow={setShow} />
-      {show && <CreateTasks showTask={show} onShow={setShow} />}
+      <CreateButton showTask={showTask} onShow={setShowTask} />
+      {showTask && <CreateTasks showTask={showTask} onShow={setShowTask} />}
       <TaskItems />
     </div>
   );

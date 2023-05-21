@@ -7,7 +7,7 @@ import {
   EDIT_TEXT,
   DELETE_TEXT,
 } from "src/utils/constants/constants";
-import { ButtonCreator } from "../buttonCreator/ButtonCreator";
+import { ButtonCreator } from "src/components/buttonCreator/ButtonCreator";
 
 const Buttons = () => {
   return (
