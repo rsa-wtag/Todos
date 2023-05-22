@@ -18,10 +18,10 @@ export const Button = ({
   );
 };
 
-Button.propTypes = {
-  onButtonClick: PropTypes.func.isRequired,
-  buttonText: PropTypes.string.isRequired,
-  srcIcon: PropTypes.string.isRequired,
-  altText: PropTypes.string.isRequired,
-  buttonClass: PropTypes.string.isRequired,
+Button.defaultProps = {
+  srcIcon: "",
+  altText: "",
+  onButtonClick: () => {},
+  buttonText: "",
+  buttonClass: "",
 };
