@@ -1,9 +1,9 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
-import "src/components/tasks/CreateTasks.component.scss";
 import { addTasks } from "src/store/actions/taskActions";
 import sanitizeInput from "src/utils/helpers/sanitizeInput";
+import "src/components/tasks/CreateTasks.component.scss";
 
 const CreateTasks = ({ showTask, onShow }) => {
   const dispatch = useDispatch();

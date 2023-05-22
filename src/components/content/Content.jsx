@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "src/components/content/Content.component.scss";
 import CreateTasks from "src/components/tasks/CreateTasks";
 import TaskItems from "src/components/tasks/TaskList";
 import CreateButton from "src/components/tasks/CreateButton";
+import "src/components/content/Content.component.scss";
 
 const Content = () => {
   const [showTask, setShowTask] = useState(false);

@@ -1,5 +1,5 @@
-import "src/components/buttonCreator/ButtonCreator.component.scss";
 import PropTypes from "prop-types";
+import "src/components/buttonCreator/ButtonCreator.component.scss";
 
 export const ButtonCreator = ({ icon, altText }) => {
   return (

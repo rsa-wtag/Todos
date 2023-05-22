@@ -1,5 +1,5 @@
-import Buttons from "src/components/buttons/Buttons";
 import PropTypes from "prop-types";
+import Buttons from "src/components/buttons/Buttons";
 
 const TaskItem = ({ task }) => {
   return (
