@@ -1,20 +1,20 @@
 import { Fragment } from "react";
-import {
-  MARK_ICON,
-  PEN_ICON,
-  BIN_ICON,
-  MARK_TEXT,
-  EDIT_TEXT,
-  DELETE_TEXT,
-} from "src/utils/constants/constants";
 import { ButtonCreator } from "src/components/buttonCreator/ButtonCreator";
+import {
+  ICON_MARK,
+  ICON_PEN,
+  ICON_BIN,
+  ALT_MARK_TEXT,
+  ALT_EDIT_TEXT,
+  ALT_DELETE_TEXT,
+} from "src/utils/constants/constants";
 
 const Buttons = () => {
   return (
     <Fragment>
-      <ButtonCreator icon={MARK_ICON} altText={MARK_TEXT} />
-      <ButtonCreator icon={PEN_ICON} altText={EDIT_TEXT} />
-      <ButtonCreator icon={BIN_ICON} altText={DELETE_TEXT} />
+      <ButtonCreator icon={ICON_MARK} altText={ALT_MARK_TEXT} />
+      <ButtonCreator icon={ICON_PEN} altText={ALT_EDIT_TEXT} />
+      <ButtonCreator icon={ICON_BIN} altText={ALT_DELETE_TEXT} />
     </Fragment>
   );
 };

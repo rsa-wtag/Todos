@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { ADD_ICON } from "src/utils/constants/constants";
+import { ALT_ADD_TEXT, ICON_ADD } from "src/utils/constants/constants";
 import "src/components/tasks/CreateButton.scss";
 
 const CreateButton = ({ showTask, onShow }) => {
@@ -9,7 +9,7 @@ const CreateButton = ({ showTask, onShow }) => {
 
   return (
     <button className="create-button" onClick={toggleShow}>
-      <img src={ADD_ICON} alt="Add Task Button" /> Create
+      <img src={ICON_ADD} alt={ALT_ADD_TEXT} /> Create
     </button>
   );
 };
