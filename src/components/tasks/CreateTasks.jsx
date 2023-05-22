@@ -5,7 +5,7 @@ import { addTasks } from "src/store/actions/taskActions";
 import sanitizeInput from "src/utils/helpers/sanitizeInput";
 import "src/components/tasks/CreateTasks.component.scss";
 
-const CreateTasks = ({ showTask, onShow }) => {
+const CreateTasks = ({ showTask, onAddTask }) => {
   const dispatch = useDispatch();
   const [task, setTask] = useState("");
   const inputRef = useRef(null);
@@ -24,7 +24,7 @@ const CreateTasks = ({ showTask, onShow }) => {
     const sanitizedValue = sanitizeInput(task);
     if (sanitizedValue) {
       dispatch(addTasks(sanitizedValue));
-      onShow(!showTask);
+      onAddTask(!showTask);
     }
     setTask("");
   }
@@ -53,7 +53,7 @@ const CreateTasks = ({ showTask, onShow }) => {
 
 CreateTasks.propTypes = {
   showTask: PropTypes.bool.isRequired,
-  onShow: PropTypes.func.isRequired,
+  onAddTask: PropTypes.func.isRequired,
 };
 
 export default CreateTasks;

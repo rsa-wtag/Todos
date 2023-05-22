@@ -11,7 +11,7 @@ const Content = () => {
     <div className="content">
       <h1>Add Tasks</h1>
       <CreateButton showTask={showTask} onShow={setShowTask} />
-      {showTask && <CreateTasks showTask={showTask} onShow={setShowTask} />}
+      {showTask && <CreateTasks showTask={showTask} onAddTask={setShowTask} />}
       <TaskItems />
     </div>
   );
