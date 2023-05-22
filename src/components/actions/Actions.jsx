@@ -33,7 +33,7 @@ const Actions = (taskId) => {
 };
 
 Actions.propTypes = {
-  taskId: PropTypes.object.isRequired,
+  taskId: PropTypes.string.isRequired,
 };
 
 export default Actions;
