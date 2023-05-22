@@ -12,9 +12,9 @@ import {
 const Actions = () => {
   return (
     <Fragment>
-      <Button srcIcon={ICON_MARK} altText={ALT_MARK_TEXT} />
-      <Button srcIcon={ICON_PEN} altText={ALT_EDIT_TEXT} />
-      <Button srcIcon={ICON_BIN} altText={ALT_DELETE_TEXT} />
+      <Button iconSrc={ICON_MARK} altText={ALT_MARK_TEXT} />
+      <Button iconSrc={ICON_PEN} altText={ALT_EDIT_TEXT} />
+      <Button iconSrc={ICON_BIN} altText={ALT_DELETE_TEXT} />
     </Fragment>
   );
 };

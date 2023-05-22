@@ -31,7 +31,7 @@ const Content = () => {
       <Button
         onButtonClick={toggleShow}
         buttonText={TEXT_CREATE}
-        srcIcon={ICON_ADD}
+        iconSrc={ICON_ADD}
         altText={ALT_ADD_TEXT}
         buttonClass={CLASS_BUTTON_CREATE}
       />

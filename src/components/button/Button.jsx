@@ -13,7 +13,7 @@ export const Button = ({
 
   return (
     <button className={combinedClass} onClick={onButtonClick}>
-      <img src={srcIcon} alt={altText} /> {buttonText}
+      <img src={iconSrc} alt={altText} /> {buttonText}
     </button>
   );
 };
