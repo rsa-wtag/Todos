@@ -1,12 +1,9 @@
 import { Fragment, useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
-import { addTasks } from "src/store/actions/taskActions";
 import sanitizeInput from "src/utils/helpers/sanitizeInput";
 import "src/components/tasks/CreateTasks.component.scss";
 
-const CreateTasks = ({ showTask, onAddTask }) => {
-  const dispatch = useDispatch();
+const CreateTasks = ({ onAddTask }) => {
   const [task, setTask] = useState("");
   const inputRef = useRef(null);
 
@@ -23,8 +20,7 @@ const CreateTasks = ({ showTask, onAddTask }) => {
   function handleAddTask() {
     const sanitizedValue = sanitizeInput(task);
     if (sanitizedValue) {
-      dispatch(addTasks(sanitizedValue));
-      onAddTask(!showTask);
+      onAddTask(sanitizedValue);
     }
     setTask("");
   }
@@ -52,7 +48,6 @@ const CreateTasks = ({ showTask, onAddTask }) => {
 };
 
 CreateTasks.propTypes = {
-  showTask: PropTypes.bool.isRequired,
   onAddTask: PropTypes.func.isRequired,
 };
 
