@@ -1,11 +1,9 @@
 import { Fragment, useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
-import "src/components/tasks/CreateTasks.component.scss";
-import { addTasks } from "src/store/actions/taskActions";
+import sanitizeInput from "src/utils/helpers/sanitizeInput";
+import "src/components/tasks/CreateTask.component.scss";
 
-const CreateTasks = ({ showTask, onShow }) => {
-  const dispatch = useDispatch();
+const CreateTask = ({ onAddTask }) => {
   const [task, setTask] = useState("");
   const inputRef = useRef(null);
 
@@ -20,30 +18,37 @@ const CreateTasks = ({ showTask, onShow }) => {
   }
 
   function handleAddTask() {
-    if (task) {
-      dispatch(addTasks(task));
-      setTask("");
-      onShow(!showTask);
+    const sanitizedValue = sanitizeInput(task);
+    if (sanitizedValue) {
+      onAddTask(sanitizedValue);
     }
+    setTask("");
   }
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleAddTask();
+    }
+  };
 
   return (
     <Fragment>
       <input
         type="text"
-        onChange={handleChange}
         className="task-input"
         value={task}
         ref={inputRef}
+        onChange={handleChange}
+        onKeyPress={handleKeyPress}
       />
       <button onClick={handleAddTask}>Add</button>
     </Fragment>
   );
 };
 
-CreateTasks.propTypes = {
-  showTask: PropTypes.bool.isRequired,
-  onShow: PropTypes.func.isRequired,
+CreateTask.propTypes = {
+  onAddTask: PropTypes.func.isRequired,
 };
 
-export default CreateTasks;
+export default CreateTask;

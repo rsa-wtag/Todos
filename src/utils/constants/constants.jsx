@@ -6,19 +6,20 @@ import navLogo from "src/assets/images/nav-logo.png";
 import searchIcon from "src/assets/images/search.png";
 import addIcon from "src/assets/images/add.png";
 
-export const MARK_TEXT = "Mark task as done";
-export const EDIT_TEXT = "Edit task";
-export const DELETE_TEXT = "Delete task";
-export const LOGO_TEXT = "Logo";
-export const SEARCH_TEXT = "Search";
-export const NAV_LOGO_TEXT = "Logo";
+export const ALT_MARK_TEXT = "Mark task as done";
+export const ALT_EDIT_TEXT = "Edit task";
+export const ALT_DELETE_TEXT = "Delete task";
+export const ALT_LOGO_TEXT = "Logo";
+export const ALT_SEARCH_TEXT = "Search";
+export const ALT_NAV_LOGO_TEXT = "Logo";
+export const ALT_ADD_TEXT = "Add Task Button";
+export const TEXT_CREATE = "create";
+export const CLASS_BUTTON_CREATE = "content__button--create";
 
-export const [
-  MARK_ICON,
-  PEN_ICON,
-  BIN_ICON,
-  LOGO,
-  NAV_LOGO,
-  SEARCH_ICON,
-  ADD_ICON,
-] = [markIcon, penIcon, binIcon, logo, navLogo, searchIcon, addIcon];
+export const ICON_MARK = markIcon;
+export const ICON_PEN = penIcon;
+export const ICON_BIN = binIcon;
+export const LOGO = logo;
+export const NAV_LOGO = navLogo;
+export const ICON_SEARCH = searchIcon;
+export const ICON_ADD = addIcon;

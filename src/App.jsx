@@ -1,6 +1,6 @@
+import Content from "src/components/content/Content";
+import Navbar from "src/components/navbar/Navbar";
 import "src/assets/styles/styles.scss";
-import Content from "./components/content/Content";
-import Navbar from "./components/navbar/Navbar";
 
 function App() {
   return (
