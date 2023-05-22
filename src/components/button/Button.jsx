@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import PropTypes from "prop-types";
 import "src/components/button/Button.component.scss";
 
@@ -8,8 +9,10 @@ export const Button = ({
   altText,
   buttonClass,
 }) => {
+  const combinedClass = classNames("button", buttonClass);
+
   return (
-    <button className={"button " + buttonClass} onClick={onButtonClick}>
+    <button className={combinedClass} onClick={onButtonClick}>
       <img src={srcIcon} alt={altText} /> {buttonText}
     </button>
   );

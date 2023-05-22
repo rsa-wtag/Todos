@@ -16,12 +16,10 @@ export const ALT_ADD_TEXT = "Add Task Button";
 export const TEXT_CREATE = "create";
 export const CLASS_BUTTON_CREATE = "content__button--create";
 
-export const [
-  ICON_MARK,
-  ICON_PEN,
-  ICON_BIN,
-  LOGO,
-  NAV_LOGO,
-  ICON_SEARCH,
-  ICON_ADD,
-] = [markIcon, penIcon, binIcon, logo, navLogo, searchIcon, addIcon];
+export const ICON_MARK = markIcon;
+export const ICON_PEN = penIcon;
+export const ICON_BIN = binIcon;
+export const LOGO = logo;
+export const NAV_LOGO = navLogo;
+export const ICON_SEARCH = searchIcon;
+export const ICON_ADD = addIcon;

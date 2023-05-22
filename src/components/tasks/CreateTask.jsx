@@ -1,9 +1,9 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import sanitizeInput from "src/utils/helpers/sanitizeInput";
-import "src/components/tasks/CreateTasks.component.scss";
+import "src/components/tasks/CreateTask.component.scss";
 
-const CreateTasks = ({ onAddTask }) => {
+const CreateTask = ({ onAddTask }) => {
   const [task, setTask] = useState("");
   const inputRef = useRef(null);
 
@@ -47,8 +47,8 @@ const CreateTasks = ({ onAddTask }) => {
   );
 };
 
-CreateTasks.propTypes = {
+CreateTask.propTypes = {
   onAddTask: PropTypes.func.isRequired,
 };
 
-export default CreateTasks;
+export default CreateTask;

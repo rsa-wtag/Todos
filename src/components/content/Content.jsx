@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import CreateTasks from "src/components/tasks/CreateTasks";
+import CreateTask from "src/components/tasks/CreateTask";
 import TaskItems from "src/components/tasks/TaskList";
 import { addTasks } from "src/store/actions/taskActions";
 import {
@@ -31,11 +31,11 @@ const Content = () => {
       <Button
         onButtonClick={toggleShow}
         buttonText={TEXT_CREATE}
-        icon={ICON_ADD}
+        srcIcon={ICON_ADD}
         altText={ALT_ADD_TEXT}
         buttonClass={CLASS_BUTTON_CREATE}
       />
-      {showTask && <CreateTasks onAddTask={onAddTask} />}
+      {showTask && <CreateTask onAddTask={onAddTask} />}
       <TaskItems />
     </div>
   );

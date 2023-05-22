@@ -6,11 +6,11 @@ const TaskList = () => {
   const tasks = useSelector((state) => state.todos);
 
   return (
-    <ul className="task-list">
+    <div className="task-list">
       {tasks.map((task) => {
         return <TaskItem key={task.id} task={task} />;
       })}
-    </ul>
+    </div>
   );
 };
 
