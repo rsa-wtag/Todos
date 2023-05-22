@@ -1,5 +1,7 @@
+import { useDispatch } from "react-redux";
 import { Fragment } from "react";
 import { Button } from "src/components/button/Button";
+import { deleteTask } from "src/store/actions/taskActions";
 import {
   ICON_MARK,
   ICON_PEN,
@@ -9,12 +11,22 @@ import {
   ALT_DELETE_TEXT,
 } from "src/utils/constants/constants";
 
-const Actions = () => {
+const Actions = (taskId) => {
+  const dispatch = useDispatch();
+
+  function onDeleteTask() {
+    dispatch(deleteTask(taskId.taskId));
+  }
+
   return (
     <Fragment>
       <Button iconSrc={ICON_MARK} altText={ALT_MARK_TEXT} />
       <Button iconSrc={ICON_PEN} altText={ALT_EDIT_TEXT} />
-      <Button iconSrc={ICON_BIN} altText={ALT_DELETE_TEXT} />
+      <Button
+        onButtonClick={onDeleteTask}
+        iconSrc={ICON_BIN}
+        altText={ALT_DELETE_TEXT}
+      />
     </Fragment>
   );
 };
