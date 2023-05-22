@@ -3,7 +3,7 @@ import Actions from "src/components/actions/Actions";
 
 const TaskItem = ({ task }) => {
   return (
-    <div key={task.id} className="task-list__item">
+    <div className="task-list__item">
       <h3>{task.title}</h3>
       <p>Created At: {task.createdAt}</p>
       <Actions taskId={task.id} />
@@ -12,7 +12,11 @@ const TaskItem = ({ task }) => {
 };
 
 TaskItem.propTypes = {
-  task: PropTypes.object.isRequired,
+  task: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    createdAt: PropTypes.string,
+  }),
 };
 
 export default TaskItem;

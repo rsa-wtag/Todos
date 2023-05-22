@@ -2,11 +2,11 @@ import classNames from "classnames";
 import "src/components/button/Button.component.scss";
 
 export const Button = ({
-  onButtonClick,
   buttonText,
   iconSrc,
   altText,
   buttonClass,
+  onButtonClick,
 }) => {
   const combinedClass = classNames("button", buttonClass);
 
@@ -20,7 +20,7 @@ export const Button = ({
 Button.defaultProps = {
   iconSrc: "",
   altText: "",
-  onButtonClick: () => {},
   buttonText: "",
   buttonClass: "",
+  onButtonClick: () => {},
 };

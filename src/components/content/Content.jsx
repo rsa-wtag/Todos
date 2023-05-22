@@ -22,18 +22,20 @@ const Content = () => {
   }
 
   function toggleShow() {
-    setShowTask(!showTask);
+    {
+      showTask || setShowTask(!showTask);
+    }
   }
 
   return (
     <div className="content">
       <h1>Add Tasks</h1>
       <Button
-        onButtonClick={toggleShow}
         buttonText={TEXT_CREATE}
         iconSrc={ICON_ADD}
         altText={ALT_ADD_TEXT}
         buttonClass={CLASS_BUTTON_CREATE}
+        onButtonClick={toggleShow}
       />
       {showTask && <CreateTask onAddTask={onAddTask} />}
       <TaskItems />
