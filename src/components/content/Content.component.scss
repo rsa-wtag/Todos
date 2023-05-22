@@ -1,3 +1,12 @@
+@import "src/assets/styles/_variables.scss";
+
 .content {
   padding: 0.625rem 12.5rem;
+  &__button__create {
+    background: $color-primary;
+    border: 0rem;
+    border-radius: 0.313rem;
+    color: $color-white;
+    padding: 0.625rem;
+  }
 }
