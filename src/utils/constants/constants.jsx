@@ -13,6 +13,8 @@ export const ALT_LOGO_TEXT = "Logo";
 export const ALT_SEARCH_TEXT = "Search";
 export const ALT_NAV_LOGO_TEXT = "Logo";
 export const ALT_ADD_TEXT = "Add Task Button";
+export const TEXT_CREATE = "create";
+export const CLASS_BUTTON_CREATE = "content__button--create";
 
 export const [
   ICON_MARK,
