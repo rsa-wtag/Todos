@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Fragment } from "react";
+import PropTypes from "prop-types";
 import { Button } from "src/components/button/Button";
 import { deleteTask } from "src/store/actions/taskActions";
 import {
@@ -29,6 +30,10 @@ const Actions = (taskId) => {
       />
     </Fragment>
   );
+};
+
+Actions.propTypes = {
+  taskId: PropTypes.object.isRequired,
 };
 
 export default Actions;
