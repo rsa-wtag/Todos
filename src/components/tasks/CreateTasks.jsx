@@ -17,26 +17,34 @@ const CreateTasks = ({ showTask, onShow }) => {
   useEffect(focusInputRef, []);
 
   function handleChange(event) {
-    const sanitizedValue = sanitizeInput(event.target.value);
-    setTask(sanitizedValue);
+    setTask(event.target.value);
   }
 
   function handleAddTask() {
-    if (task.trim()) {
-      dispatch(addTasks(task));
+    const sanitizedValue = sanitizeInput(task);
+    if (sanitizedValue) {
+      dispatch(addTasks(sanitizedValue));
       onShow(!showTask);
     }
     setTask("");
   }
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleAddTask();
+    }
+  };
+
   return (
     <Fragment>
       <input
         type="text"
-        onChange={handleChange}
         className="task-input"
         value={task}
         ref={inputRef}
+        onChange={handleChange}
+        onKeyPress={handleKeyPress}
       />
       <button onClick={handleAddTask}>Add</button>
     </Fragment>

@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import "src/components/tasks/TaskItems.component.scss";
-import TaskBoard from "src/components/TaskBoard/TaskBoard";
+import TaskBoard from "src/components/taskItem/TaskItem";
+import "src/components/tasks/TaskList.component.scss";
 
-const TaskItems = () => {
+const TaskList = () => {
   const tasks = useSelector((state) => state.todos);
 
   return (
@@ -14,4 +14,4 @@ const TaskItems = () => {
   );
 };
 
-export default TaskItems;
+export default TaskList;

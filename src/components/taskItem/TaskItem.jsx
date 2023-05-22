@@ -1,7 +1,7 @@
 import Buttons from "src/components/buttons/Buttons";
 import PropTypes from "prop-types";
 
-const TaskBoard = ({ task }) => {
+const TaskItem = ({ task }) => {
   return (
     <li key={task.id} className="task-list__item">
       <h3>{task.title}</h3>
@@ -11,8 +11,8 @@ const TaskBoard = ({ task }) => {
   );
 };
 
-TaskBoard.propTypes = {
+TaskItem.propTypes = {
   task: PropTypes.object.isRequired,
 };
 
-export default TaskBoard;
+export default TaskItem;
