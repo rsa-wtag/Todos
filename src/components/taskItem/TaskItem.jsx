@@ -4,7 +4,7 @@ import Actions from "src/components/actions/Actions";
 const TaskItem = ({ task }) => {
   return (
     <div className="task-list__item">
-      <h3 className={task.isCompleted && "task-list__item--completed"}>
+      <h3 className={task.isCompleted ? "task-list__item--completed" : null}>
         {task.title}
       </h3>
       <p>Created At: {task.createdAt}</p>

@@ -13,7 +13,6 @@ import {
 } from "src/utils/constants/constants";
 
 const Actions = (task) => {
-  console.log(task);
   const dispatch = useDispatch();
 
   function onDeleteTask() {
