@@ -15,6 +15,7 @@ export const ALT_NAV_LOGO_TEXT = "Logo";
 export const ALT_ADD_TEXT = "Add Task Button";
 export const ALT_HIDE_BUTTON_TEXT = "Hide Create Button";
 export const ALT_SAVE_AND_DONE_TEXT = "Save and mark task as done";
+export const ALT_REVERT_TEXT = "Revert task to previous title";
 export const TEXT_CREATE = "create";
 export const CLASS_BUTTON_CREATE = "content__button--create";
 

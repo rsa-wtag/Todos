@@ -1,9 +1,15 @@
 import { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Button } from "src/components/button/Button";
-import { editTask, saveAndDoneTask } from "src/store/actions/taskActions";
 import {
+  editTask,
+  revertTask,
+  saveAndDoneTask,
+} from "src/store/actions/taskActions";
+import {
+  ALT_REVERT_TEXT,
   ALT_SAVE_AND_DONE_TEXT,
+  ICON_BIN,
   ICON_MARK,
 } from "src/utils/constants/constants";
 
@@ -20,10 +26,15 @@ const EditableTask = ({ task, changeEditableState }) => {
     changeEditableState();
   }
 
-    function onSaveAndDone() {
-      dispatch(saveAndDoneTask(task.id, editedTask));
-      changeEditableState();
-    }
+  function onSaveAndDone() {
+    dispatch(saveAndDoneTask(task.id, editedTask));
+    changeEditableState();
+  }
+
+  function onRevertTask() {
+    dispatch(revertTask());
+    changeEditableState();
+  }
 
   return (
     <Fragment>
@@ -40,6 +51,11 @@ const EditableTask = ({ task, changeEditableState }) => {
         iconSrc={ICON_MARK}
         altText={ALT_SAVE_AND_DONE_TEXT}
         onButtonClick={onSaveAndDone}
+      />
+      <Button
+        iconSrc={ICON_BIN}
+        altText={ALT_REVERT_TEXT}
+        onButtonClick={onRevertTask}
       />
     </Fragment>
   );

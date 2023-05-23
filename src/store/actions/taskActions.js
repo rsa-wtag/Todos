@@ -3,6 +3,7 @@ import {
   COMPLETE_TASK,
   EDIT_TASK,
   REMOVE_TASK,
+  REVERT_TASK,
   SAVE_AND_DONE_TASK,
 } from "src/store";
 import { createDate } from "src/utils/helpers/createDate";
@@ -44,5 +45,11 @@ export const saveAndDoneTask = (taskId, editedTask) => {
   return {
     type: SAVE_AND_DONE_TASK,
     payload: { taskId, editedTask },
+  };
+};
+
+export const revertTask = () => {
+  return {
+    type: REVERT_TASK,
   };
 };

@@ -4,6 +4,7 @@ import {
   COMPLETE_TASK,
   EDIT_TASK,
   REMOVE_TASK,
+  REVERT_TASK,
   SAVE_AND_DONE_TASK,
 } from "src/store";
 
@@ -51,6 +52,8 @@ const taskReducer = (state = initialState, action) => {
         }
         return task;
       });
+    case REVERT_TASK:
+      return state;
     default:
       return state;
   }

@@ -9,7 +9,6 @@ const TaskItem = ({ task }) => {
   function changeEditableState() {
     SetEditableState(!editableState);
   }
-  console.log(task);
 
   return (
     <div className="task-list__item">
