@@ -2,8 +2,8 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Button } from "src/components/button/Button.jsx";
 import sanitizeInput from "src/utils/helpers/sanitizeInput";
-import "src/components/tasks/CreateTask.component.scss";
 import { ALT_HIDE_BUTTON_TEXT, ICON_BIN } from "src/utils/constants/constants";
+import "src/components/tasks/CreateTask.component.scss";
 
 const CreateTask = ({ onAddTask, onHideButtonClick }) => {
   const [task, setTask] = useState("");

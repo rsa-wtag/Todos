@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Button } from "src/components/button/Button";
-import { deleteTask } from "src/store/actions/taskActions";
+import { deleteTask, taskDone } from "src/store/actions/taskActions";
 import {
   ICON_MARK,
   ICON_PEN,
@@ -19,14 +19,22 @@ const Actions = (taskId) => {
     dispatch(deleteTask(taskId.taskId));
   }
 
+  function onTaskDone() {
+    dispatch(taskDone(taskId.taskId));
+  }
+
   return (
     <Fragment>
-      <Button iconSrc={ICON_MARK} altText={ALT_MARK_TEXT} />
+      <Button
+        iconSrc={ICON_MARK}
+        altText={ALT_MARK_TEXT}
+        onButtonClick={onTaskDone}
+      />
       <Button iconSrc={ICON_PEN} altText={ALT_EDIT_TEXT} />
       <Button
-        onButtonClick={onDeleteTask}
         iconSrc={ICON_BIN}
         altText={ALT_DELETE_TEXT}
+        onButtonClick={onDeleteTask}
       />
     </Fragment>
   );

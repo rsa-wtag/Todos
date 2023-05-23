@@ -1,4 +1,4 @@
-import { ADD_TASK, REMOVE_TASK } from "src/store";
+import { ADD_TASK, COMPLETE_TASK, REMOVE_TASK } from "src/store";
 import { createDate } from "src/utils/helpers/createDate";
 
 export const addTasks = (title) => {
@@ -16,6 +16,13 @@ export const addTasks = (title) => {
 export const deleteTask = (taskId) => {
   return {
     type: REMOVE_TASK,
+    payload: taskId,
+  };
+};
+
+export const taskDone = (taskId) => {
+  return {
+    type: COMPLETE_TASK,
     payload: taskId,
   };
 };
