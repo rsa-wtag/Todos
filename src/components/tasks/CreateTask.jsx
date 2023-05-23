@@ -1,9 +1,11 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
+import { Button } from "src/components/button/Button.jsx";
 import sanitizeInput from "src/utils/helpers/sanitizeInput";
 import "src/components/tasks/CreateTask.component.scss";
+import { ALT_HIDE_BUTTON_TEXT, ICON_BIN } from "src/utils/constants/constants";
 
-const CreateTask = ({ onAddTask }) => {
+const CreateTask = ({ onAddTask, onHideButtonClick }) => {
   const [task, setTask] = useState("");
   const inputRef = useRef(null);
 
@@ -43,12 +45,18 @@ const CreateTask = ({ onAddTask }) => {
         onKeyPress={handleKeyPress}
       />
       <button onClick={handleAddTask}>Add</button>
+      <Button
+        iconSrc={ICON_BIN}
+        altText={ALT_HIDE_BUTTON_TEXT}
+        onButtonClick={onHideButtonClick}
+      />
     </Fragment>
   );
 };
 
 CreateTask.propTypes = {
   onAddTask: PropTypes.func.isRequired,
+  onHideButtonClick: PropTypes.func.isRequired,
 };
 
 export default CreateTask;

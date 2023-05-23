@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import classNames from "classnames";
 import "src/components/button/Button.component.scss";
 
@@ -23,4 +24,12 @@ Button.defaultProps = {
   buttonText: "",
   buttonClass: "",
   onButtonClick: () => {},
+};
+
+Button.propTypes = {
+  iconSrc: PropTypes.string,
+  altText: PropTypes.string,
+  buttonText: PropTypes.string,
+  buttonClass: PropTypes.string,
+  onButtonClick: PropTypes.func,
 };
