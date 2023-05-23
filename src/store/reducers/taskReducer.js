@@ -1,5 +1,11 @@
 import { parse, differenceInDays } from "date-fns";
-import { ADD_TASK, COMPLETE_TASK, EDIT_TASK, REMOVE_TASK } from "src/store";
+import {
+  ADD_TASK,
+  COMPLETE_TASK,
+  EDIT_TASK,
+  REMOVE_TASK,
+  SAVE_AND_DONE_TASK,
+} from "src/store";
 
 const initialState = [];
 const taskReducer = (state = initialState, action) => {
@@ -19,7 +25,6 @@ const taskReducer = (state = initialState, action) => {
         }
         return task;
       });
-
     case EDIT_TASK:
       return state.map((task) => {
         if (task.id === action.payload.taskId) {
@@ -30,7 +35,22 @@ const taskReducer = (state = initialState, action) => {
         }
         return task;
       });
+    case SAVE_AND_DONE_TASK:
+      return state.map((task) => {
+        if (task.id === action.payload.taskId) {
+          const createdAt = parse(task.createdAt, "dd.MM.yy", new Date());
+          const currentDate = new Date();
+          const daysToComplete = differenceInDays(currentDate, createdAt) + 1;
 
+          return {
+            ...task,
+            isCompleted: true,
+            daysToComplete: daysToComplete,
+            title: action.payload.editedTask,
+          };
+        }
+        return task;
+      });
     default:
       return state;
   }

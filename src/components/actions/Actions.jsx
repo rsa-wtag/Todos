@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Button } from "src/components/button/Button";
-import { deleteTask, editTask, taskDone } from "src/store/actions/taskActions";
+import { deleteTask, taskDone } from "src/store/actions/taskActions";
 import {
   ICON_MARK,
   ICON_PEN,

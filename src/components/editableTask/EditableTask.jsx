@@ -1,7 +1,11 @@
 import { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Button } from "src/components/button/Button";
-import { editTask } from "src/store/actions/taskActions";
+import { editTask, saveAndDoneTask } from "src/store/actions/taskActions";
+import {
+  ALT_SAVE_AND_DONE_TEXT,
+  ICON_MARK,
+} from "src/utils/constants/constants";
 
 const EditableTask = ({ task, changeEditableState }) => {
   const [editedTask, setEditedTask] = useState(task.title);
@@ -16,6 +20,11 @@ const EditableTask = ({ task, changeEditableState }) => {
     changeEditableState();
   }
 
+    function onSaveAndDone() {
+      dispatch(saveAndDoneTask(task.id, editedTask));
+      changeEditableState();
+    }
+
   return (
     <Fragment>
       <textarea
@@ -27,6 +36,11 @@ const EditableTask = ({ task, changeEditableState }) => {
         onChange={handleChange}
       ></textarea>
       <Button buttonText="save" onButtonClick={onSave} />
+      <Button
+        iconSrc={ICON_MARK}
+        altText={ALT_SAVE_AND_DONE_TEXT}
+        onButtonClick={onSaveAndDone}
+      />
     </Fragment>
   );
 };

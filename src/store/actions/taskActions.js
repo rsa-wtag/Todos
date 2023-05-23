@@ -1,4 +1,10 @@
-import { ADD_TASK, COMPLETE_TASK, EDIT_TASK, REMOVE_TASK } from "src/store";
+import {
+  ADD_TASK,
+  COMPLETE_TASK,
+  EDIT_TASK,
+  REMOVE_TASK,
+  SAVE_AND_DONE_TASK,
+} from "src/store";
 import { createDate } from "src/utils/helpers/createDate";
 
 export const addTasks = (title) => {
@@ -30,6 +36,13 @@ export const taskDone = (taskId) => {
 export const editTask = (taskId, editedTask) => {
   return {
     type: EDIT_TASK,
+    payload: { taskId, editedTask },
+  };
+};
+
+export const saveAndDoneTask = (taskId, editedTask) => {
+  return {
+    type: SAVE_AND_DONE_TASK,
     payload: { taskId, editedTask },
   };
 };
