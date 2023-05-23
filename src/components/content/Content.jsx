@@ -21,14 +21,10 @@ const Content = () => {
     dispatch(addTasks(sanitizedValue));
   }
   function showInputField() {
-    {
-      showTask || setShowTask(!showTask);
-    }
+    showTask || setShowTask(!showTask);
   }
   function hideInputField() {
-    {
-      showTask && setShowTask(!showTask);
-    }
+    showTask && setShowTask(!showTask);
   }
 
   return (

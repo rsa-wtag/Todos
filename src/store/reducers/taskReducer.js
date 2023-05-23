@@ -1,5 +1,5 @@
 import { parse, differenceInDays } from "date-fns";
-import { ADD_TASK, COMPLETE_TASK, REMOVE_TASK } from "src/store";
+import { ADD_TASK, COMPLETE_TASK, EDIT_TASK, REMOVE_TASK } from "src/store";
 
 const initialState = [];
 const taskReducer = (state = initialState, action) => {
@@ -19,6 +19,18 @@ const taskReducer = (state = initialState, action) => {
         }
         return task;
       });
+
+    case EDIT_TASK:
+      return state.map((task) => {
+        if (task.id === action.payload.taskId) {
+          return {
+            ...task,
+            title: action.payload.editedTask,
+          };
+        }
+        return task;
+      });
+
     default:
       return state;
   }

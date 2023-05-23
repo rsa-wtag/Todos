@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Button } from "src/components/button/Button";
-import { deleteTask, taskDone } from "src/store/actions/taskActions";
+import { deleteTask, editTask, taskDone } from "src/store/actions/taskActions";
 import {
   ICON_MARK,
   ICON_PEN,
@@ -12,27 +12,31 @@ import {
   ALT_DELETE_TEXT,
 } from "src/utils/constants/constants";
 
-const Actions = (task) => {
+const Actions = ({ task, changeEditableState }) => {
   const dispatch = useDispatch();
 
   function onDeleteTask() {
-    dispatch(deleteTask(task.task.id));
+    dispatch(deleteTask(task.id));
   }
 
   function onTaskDone() {
-    dispatch(taskDone(task.task.id));
+    dispatch(taskDone(task.id));
   }
 
   return (
     <Fragment>
-      {task.task.isCompleted || (
+      {task.isCompleted || (
         <div>
           <Button
             iconSrc={ICON_MARK}
             altText={ALT_MARK_TEXT}
             onButtonClick={onTaskDone}
           />
-          <Button iconSrc={ICON_PEN} altText={ALT_EDIT_TEXT} />
+          <Button
+            iconSrc={ICON_PEN}
+            altText={ALT_EDIT_TEXT}
+            onButtonClick={changeEditableState}
+          />
         </div>
       )}
       <Button
@@ -40,9 +44,9 @@ const Actions = (task) => {
         altText={ALT_DELETE_TEXT}
         onButtonClick={onDeleteTask}
       />
-      {task.task.isCompleted && (
+      {task.isCompleted && (
         <div>
-          <span>Completed in {task.task.daysToComplete} day</span>
+          <span>Completed in {task.daysToComplete} day</span>
         </div>
       )}
     </Fragment>
