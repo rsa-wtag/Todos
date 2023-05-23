@@ -4,9 +4,11 @@ import Actions from "src/components/actions/Actions";
 const TaskItem = ({ task }) => {
   return (
     <div className="task-list__item">
-      <h3>{task.title}</h3>
+      <h3 className={task.isCompleted && "task-list__item--completed"}>
+        {task.title}
+      </h3>
       <p>Created At: {task.createdAt}</p>
-      <Actions taskId={task.id} />
+      <Actions task={task} />
     </div>
   );
 };

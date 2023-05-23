@@ -12,36 +12,50 @@ import {
   ALT_DELETE_TEXT,
 } from "src/utils/constants/constants";
 
-const Actions = (taskId) => {
+const Actions = (task) => {
+  console.log(task);
   const dispatch = useDispatch();
 
   function onDeleteTask() {
-    dispatch(deleteTask(taskId.taskId));
+    dispatch(deleteTask(task.task.id));
   }
 
   function onTaskDone() {
-    dispatch(taskDone(taskId.taskId));
+    dispatch(taskDone(task.task.id));
   }
 
   return (
     <Fragment>
-      <Button
-        iconSrc={ICON_MARK}
-        altText={ALT_MARK_TEXT}
-        onButtonClick={onTaskDone}
-      />
-      <Button iconSrc={ICON_PEN} altText={ALT_EDIT_TEXT} />
+      {task.task.isCompleted || (
+        <div>
+          <Button
+            iconSrc={ICON_MARK}
+            altText={ALT_MARK_TEXT}
+            onButtonClick={onTaskDone}
+          />
+          <Button iconSrc={ICON_PEN} altText={ALT_EDIT_TEXT} />
+        </div>
+      )}
       <Button
         iconSrc={ICON_BIN}
         altText={ALT_DELETE_TEXT}
         onButtonClick={onDeleteTask}
       />
+      {task.task.isCompleted && (
+        <div>
+          <span>Completed in {task.task.daysToComplete} day</span>
+        </div>
+      )}
     </Fragment>
   );
 };
 
 Actions.propTypes = {
-  taskId: PropTypes.string.isRequired,
+  task: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    createdAt: PropTypes.string,
+  }),
 };
 
 export default Actions;

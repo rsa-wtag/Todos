@@ -14,5 +14,10 @@
     margin: 0.625rem 0.625rem 0.625rem 0rem;
     padding: 0.625rem;
     width: 21.875rem;
+
+    &--completed {
+      color: $color-green;
+      text-decoration: line-through;
+    }
   }
 }

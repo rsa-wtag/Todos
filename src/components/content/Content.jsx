@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import CreateTask from "src/components/tasks/CreateTask";
-import TaskItems from "src/components/tasks/TaskList";
+import TaskList from "src/components/tasks/TaskList";
 import { addTasks } from "src/store/actions/taskActions";
 import { Button } from "src/components/button/Button";
 import {
@@ -44,7 +44,7 @@ const Content = () => {
       {showTask && (
         <CreateTask onAddTask={onAddTask} onHideButtonClick={hideInputField} />
       )}
-      <TaskItems />
+      <TaskList />
     </div>
   );
 };
