@@ -1,7 +1,7 @@
 import { LOAD_MORE, SET_NUM_OF_VISIBLE_TASKS } from "src/store";
 
 const initialState = {
-  numOfVisibleTasks: 3,
+  numOfVisibleTasks: 0,
 };
 
 const numOfVisibleTasksReducer = (state = initialState, action) => {

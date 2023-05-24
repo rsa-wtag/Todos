@@ -15,45 +15,56 @@ import { setNumOfVisibleTasks } from "src/store/actions/numOfVisibleTaskAction";
 
 const Content = () => {
   const [showTask, setShowTask] = useState(false);
+  const tasks = useSelector((state) => state.todos);
+  const [taskLength, setTaskLength] = useState(tasks.length);
   const dispatch = useDispatch();
   const numOfVisibleTasks = useSelector(
     (state) => state.numOfVisibleTasks.numOfVisibleTasks
   );
-  const tasks = useSelector((state) => state.todos);
   const [filteredTasks, setFilteredTasks] = useState([]);
   const initialNumOfTasks = 3;
+
   useEffect(() => {
     setFilteredTasks([...tasks]);
+    setTaskLength(taskLength + 1);
   }, [tasks]);
 
   function onAddTask(sanitizedValue) {
     setShowTask(!showTask);
     dispatch(addTasks(sanitizedValue));
-    if (tasks.length > numOfVisibleTasks) {
+    if (taskLength > numOfVisibleTasks) {
       dispatch(setNumOfVisibleTasks(numOfVisibleTasks + 1));
     }
   }
+
   function showInputField() {
     showTask || setShowTask(!showTask);
-    if (numOfVisibleTasks >= initialNumOfTasks) {
+    if (
+      numOfVisibleTasks >= initialNumOfTasks &&
+      numOfVisibleTasks % initialNumOfTasks === 0
+    ) {
       dispatch(setNumOfVisibleTasks(numOfVisibleTasks - 1));
     }
   }
+
   function hideInputField() {
     showTask && setShowTask(!showTask);
-    if (tasks.length > numOfVisibleTasks) {
+    if (taskLength > numOfVisibleTasks) {
       dispatch(setNumOfVisibleTasks(numOfVisibleTasks + 1));
     }
   }
+
   function showAllTasks() {
     setFilteredTasks([...tasks]);
     dispatch(setNumOfVisibleTasks(initialNumOfTasks));
   }
+
   function showIncompleteTasks() {
     const filteredTasks = tasks.filter((task) => !task.isCompleted);
     setFilteredTasks(filteredTasks);
     dispatch(setNumOfVisibleTasks(initialNumOfTasks));
   }
+
   function showCompleteTasks() {
     const filteredTasks = tasks.filter((task) => task.isCompleted);
     setFilteredTasks(filteredTasks);

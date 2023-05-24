@@ -11,7 +11,11 @@ const TaskList = ({ initialNumOfTasks, tasks }) => {
   const dispatch = useDispatch();
 
   function loadMoreTasks() {
-    dispatch(setNumOfVisibleTasks(numOfVisibleTasks + initialNumOfTasks));
+    dispatch(
+      setNumOfVisibleTasks(
+        Math.min(numOfVisibleTasks + initialNumOfTasks, tasks.length)
+      )
+    );
   }
 
   function showLessTasks() {
