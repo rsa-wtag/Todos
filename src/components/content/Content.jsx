@@ -22,6 +22,7 @@ const Content = () => {
   }
   function showInputField() {
     showTask || setShowTask(!showTask);
+    // setVisibleTasks(visibleTasks-1);
   }
   function hideInputField() {
     showTask && setShowTask(!showTask);
@@ -40,7 +41,7 @@ const Content = () => {
       {showTask && (
         <CreateTask onAddTask={onAddTask} onHideButtonClick={hideInputField} />
       )}
-      <TaskList />
+      <TaskList showTask={showTask} />
     </div>
   );
 };
