@@ -4,8 +4,7 @@ import { Button } from "src/components/button/Button";
 import { setNumOfVisibleTasks } from "src/store/actions/numOfVisibleTaskAction";
 import "src/components/tasks/TaskList.component.scss";
 
-const TaskList = ({ initialNumOfTasks }) => {
-  const tasks = useSelector((state) => state.todos);
+const TaskList = ({ initialNumOfTasks, tasks }) => {
   const numOfVisibleTasks = useSelector(
     (state) => state.numOfVisibleTasks.numOfVisibleTasks
   );

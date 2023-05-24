@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CreateTask from "src/components/tasks/CreateTask";
 import TaskList from "src/components/tasks/TaskList";
@@ -20,8 +20,11 @@ const Content = () => {
     (state) => state.numOfVisibleTasks.numOfVisibleTasks
   );
   const tasks = useSelector((state) => state.todos);
-
+  const [filteredTasks, setFilteredTasks] = useState([]);
   const initialNumOfTasks = 3;
+  useEffect(() => {
+    setFilteredTasks([...tasks]);
+  }, [tasks]);
 
   function onAddTask(sanitizedValue) {
     setShowTask(!showTask);
@@ -42,6 +45,20 @@ const Content = () => {
       dispatch(setNumOfVisibleTasks(numOfVisibleTasks + 1));
     }
   }
+  function showAllTasks() {
+    setFilteredTasks([...tasks]);
+    dispatch(setNumOfVisibleTasks(initialNumOfTasks));
+  }
+  function showIncompleteTasks() {
+    const filteredTasks = tasks.filter((task) => !task.isCompleted);
+    setFilteredTasks(filteredTasks);
+    dispatch(setNumOfVisibleTasks(initialNumOfTasks));
+  }
+  function showCompleteTasks() {
+    const filteredTasks = tasks.filter((task) => task.isCompleted);
+    setFilteredTasks(filteredTasks);
+    dispatch(setNumOfVisibleTasks(initialNumOfTasks));
+  }
 
   return (
     <div className="content">
@@ -53,10 +70,13 @@ const Content = () => {
         buttonClass={CLASS_BUTTON_CREATE}
         onButtonClick={showInputField}
       />
+      <Button buttonText="All" onButtonClick={showAllTasks} />
+      <Button buttonText="Incomplete" onButtonClick={showIncompleteTasks} />
+      <Button buttonText="Complete" onButtonClick={showCompleteTasks} />
       {showTask && (
         <CreateTask onAddTask={onAddTask} onHideButtonClick={hideInputField} />
       )}
-      <TaskList initialNumOfTasks={initialNumOfTasks} />
+      <TaskList initialNumOfTasks={initialNumOfTasks} tasks={filteredTasks} />
     </div>
   );
 };
