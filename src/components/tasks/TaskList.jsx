@@ -1,33 +1,36 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import TaskItem from "src/components/taskItem/TaskItem";
 import { Button } from "src/components/button/Button";
+import { setNumOfVisibleTasks } from "src/store/actions/numOfVisibleTaskAction";
 import "src/components/tasks/TaskList.component.scss";
 
-const TaskList = ({ showTask }) => {
+const TaskList = ({ initialNumOfTasks }) => {
   const tasks = useSelector((state) => state.todos);
-  const paginationLimit = 3;
-  const [visibleTasks, setVisibleTasks] = useState(paginationLimit);
+  const numOfVisibleTasks = useSelector(
+    (state) => state.numOfVisibleTasks.numOfVisibleTasks
+  );
+  const dispatch = useDispatch();
 
   function loadMoreTasks() {
-    setVisibleTasks((visibleTasks) => visibleTasks + paginationLimit);
+    dispatch(setNumOfVisibleTasks(numOfVisibleTasks + initialNumOfTasks));
   }
 
   function showLessTasks() {
-    setVisibleTasks(paginationLimit);
+    dispatch(setNumOfVisibleTasks(initialNumOfTasks));
   }
 
   return (
     <div className="task-list">
-      {tasks.slice(0, visibleTasks).map((task) => {
+      {tasks.slice(0, numOfVisibleTasks).map((task) => {
         return <TaskItem key={task.id} task={task} />;
       })}
-      {visibleTasks < tasks.length && (
+      {numOfVisibleTasks < tasks.length && (
         <Button buttonText="Load more" onButtonClick={loadMoreTasks} />
       )}
-      {visibleTasks >= tasks.length && visibleTasks > paginationLimit && (
-        <button onClick={showLessTasks}>Show less</button>
-      )}
+      {numOfVisibleTasks >= tasks.length &&
+        numOfVisibleTasks > initialNumOfTasks && (
+          <button onClick={showLessTasks}>Show less</button>
+        )}
     </div>
   );
 };
