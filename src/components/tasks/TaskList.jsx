@@ -25,7 +25,7 @@ const TaskList = ({ initialNumOfTasks, tasks, showTask }) => {
       dispatch(setNumOfVisibleTasks(initialNumOfTasks));
     }
   }
-  console.log(numOfVisibleTasks === tasks.length);
+
   return (
     <div className="task-list">
       {tasks.slice(0, numOfVisibleTasks).map((task) => {

@@ -1,4 +1,4 @@
-import { LOAD_MORE, SET_NUM_OF_VISIBLE_TASKS } from "src/store";
+import { SET_NUM_OF_VISIBLE_TASKS } from "src/store";
 
 const initialState = {
   numOfVisibleTasks: 0,

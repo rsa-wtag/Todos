@@ -20,6 +20,8 @@ const Content = () => {
   const numOfVisibleTasks = useSelector(
     (state) => state.numOfVisibleTasks.numOfVisibleTasks
   );
+  const searchedTasks = useSelector((state) => state.searchedTasks);
+  console.log(searchedTasks);
   const [filteredTasks, setFilteredTasks] = useState([]);
   const initialNumOfTasks = 3;
 
@@ -53,7 +55,6 @@ const Content = () => {
       dispatch(setNumOfVisibleTasks(numOfVisibleTasks + 1));
     }
   }
-  console.log(tasks.length, numOfVisibleTasks);
 
   function showAllTasks() {
     setFilteredTasks([...tasks]);
