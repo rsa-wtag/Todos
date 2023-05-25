@@ -21,7 +21,7 @@ const TaskList = ({ initialNumOfTasks, tasks }) => {
   function showLessTasks() {
     dispatch(setNumOfVisibleTasks(initialNumOfTasks));
   }
-
+  // console.log(tasks.length, numOfVisibleTasks);
   return (
     <div className="task-list">
       {tasks.slice(0, numOfVisibleTasks).map((task) => {

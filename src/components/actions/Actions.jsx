@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Button } from "src/components/button/Button";
@@ -11,12 +11,20 @@ import {
   ALT_EDIT_TEXT,
   ALT_DELETE_TEXT,
 } from "src/utils/constants/constants";
+import { setNumOfVisibleTasks } from "src/store/actions/numOfVisibleTaskAction";
 
 const Actions = ({ task, changeEditableState }) => {
   const dispatch = useDispatch();
+  const tasks = useSelector((state) => state.todos);
+  const numOfVisibleTasks = useSelector(
+    (state) => state.numOfVisibleTasks.numOfVisibleTasks
+  );
 
   function onDeleteTask() {
     dispatch(deleteTask(task.id));
+    dispatch(
+      setNumOfVisibleTasks(Math.min(tasks.length - 1, numOfVisibleTasks))
+    );
   }
 
   function onTaskDone() {
