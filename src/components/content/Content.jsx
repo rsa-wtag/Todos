@@ -4,6 +4,7 @@ import CreateTask from "src/components/tasks/CreateTask";
 import TaskList from "src/components/tasks/TaskList";
 import { addTasks } from "src/store/actions/taskActions";
 import { Button } from "src/components/button/Button";
+import { setNumOfVisibleTasks } from "src/store/actions/numOfVisibleTaskAction";
 import {
   ALT_ADD_TEXT,
   CLASS_BUTTON_CREATE,
@@ -11,12 +12,10 @@ import {
   TEXT_CREATE,
 } from "src/utils/constants/constants";
 import "src/components/content/Content.component.scss";
-import { setNumOfVisibleTasks } from "src/store/actions/numOfVisibleTaskAction";
 
 const Content = () => {
   const [showTask, setShowTask] = useState(false);
   const tasks = useSelector((state) => state.todos);
-  const [taskLength, setTaskLength] = useState(tasks.length);
   const dispatch = useDispatch();
   const numOfVisibleTasks = useSelector(
     (state) => state.numOfVisibleTasks.numOfVisibleTasks
@@ -26,21 +25,18 @@ const Content = () => {
 
   useEffect(() => {
     setFilteredTasks([...tasks]);
-    setTaskLength(taskLength + 1);
   }, [tasks]);
 
   function onAddTask(sanitizedValue) {
     setShowTask(!showTask);
     dispatch(addTasks(sanitizedValue));
-    if (taskLength > numOfVisibleTasks) {
-      dispatch(setNumOfVisibleTasks(numOfVisibleTasks + 1));
-    }
+    dispatch(setNumOfVisibleTasks(numOfVisibleTasks + 1));
   }
 
   function showInputField() {
     showTask || setShowTask(!showTask);
     if (
-      numOfVisibleTasks >= initialNumOfTasks &&
+      numOfVisibleTasks !== 0 &&
       numOfVisibleTasks % initialNumOfTasks === 0
     ) {
       dispatch(setNumOfVisibleTasks(numOfVisibleTasks - 1));
@@ -49,10 +45,15 @@ const Content = () => {
 
   function hideInputField() {
     showTask && setShowTask(!showTask);
-    if (taskLength > numOfVisibleTasks) {
+    if (
+      numOfVisibleTasks !== tasks.length &&
+      tasks.length >= initialNumOfTasks &&
+      numOfVisibleTasks % initialNumOfTasks === initialNumOfTasks - 1
+    ) {
       dispatch(setNumOfVisibleTasks(numOfVisibleTasks + 1));
     }
   }
+  console.log(tasks.length, numOfVisibleTasks);
 
   function showAllTasks() {
     setFilteredTasks([...tasks]);
@@ -87,7 +88,11 @@ const Content = () => {
       {showTask && (
         <CreateTask onAddTask={onAddTask} onHideButtonClick={hideInputField} />
       )}
-      <TaskList initialNumOfTasks={initialNumOfTasks} tasks={filteredTasks} />
+      <TaskList
+        initialNumOfTasks={initialNumOfTasks}
+        tasks={filteredTasks}
+        showTask={showTask}
+      />
     </div>
   );
 };

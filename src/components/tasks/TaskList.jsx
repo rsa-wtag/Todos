@@ -4,7 +4,7 @@ import { Button } from "src/components/button/Button";
 import { setNumOfVisibleTasks } from "src/store/actions/numOfVisibleTaskAction";
 import "src/components/tasks/TaskList.component.scss";
 
-const TaskList = ({ initialNumOfTasks, tasks }) => {
+const TaskList = ({ initialNumOfTasks, tasks, showTask }) => {
   const numOfVisibleTasks = useSelector(
     (state) => state.numOfVisibleTasks.numOfVisibleTasks
   );
@@ -19,9 +19,13 @@ const TaskList = ({ initialNumOfTasks, tasks }) => {
   }
 
   function showLessTasks() {
-    dispatch(setNumOfVisibleTasks(initialNumOfTasks));
+    if (showTask) {
+      dispatch(setNumOfVisibleTasks(initialNumOfTasks - 1));
+    } else {
+      dispatch(setNumOfVisibleTasks(initialNumOfTasks));
+    }
   }
-  // console.log(tasks.length, numOfVisibleTasks);
+  console.log(numOfVisibleTasks === tasks.length);
   return (
     <div className="task-list">
       {tasks.slice(0, numOfVisibleTasks).map((task) => {
@@ -30,10 +34,14 @@ const TaskList = ({ initialNumOfTasks, tasks }) => {
       {numOfVisibleTasks < tasks.length && (
         <Button buttonText="Load more" onButtonClick={loadMoreTasks} />
       )}
-      {numOfVisibleTasks >= tasks.length &&
-        numOfVisibleTasks > initialNumOfTasks && (
-          <button onClick={showLessTasks}>Show less</button>
-        )}
+      {numOfVisibleTasks === tasks.length &&
+        (showTask
+          ? numOfVisibleTasks >= initialNumOfTasks && (
+              <button onClick={showLessTasks}>Show less</button>
+            )
+          : numOfVisibleTasks > initialNumOfTasks && (
+              <button onClick={showLessTasks}>Show less</button>
+            ))}
     </div>
   );
 };
