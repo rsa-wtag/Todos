@@ -11,33 +11,38 @@ import {
   ICON_ADD,
   TEXT_CREATE,
 } from "src/utils/constants/constants";
+import { showSearchedTasks } from "src/store/actions/showSearchedTaskActions";
 import "src/components/content/Content.component.scss";
 
 const Content = () => {
   const [showTask, setShowTask] = useState(false);
+  const [label, setLabel] = useState("All");
   const tasks = useSelector((state) => state.todos);
   const dispatch = useDispatch();
   const numOfVisibleTasks = useSelector(
     (state) => state.numOfVisibleTasks.numOfVisibleTasks
   );
   const searchedTasks = useSelector((state) => state.searchedTasks);
+  const showSearch = useSelector((state) => state.showSearchedTasks);
 
-  // console.log(searchedTasks.length === 0);
+  console.log(showSearch);
   const [filteredTasks, setFilteredTasks] = useState([]);
   const initialNumOfTasks = 3;
 
   useEffect(() => {
-    if (searchedTasks.length === 0) {
-      setFilteredTasks([...tasks]);
-      // console.log(tasks);
+    setFilteredTasks(showSearch ? [...searchedTasks] : [...tasks]);
+    if (showSearch && label === "Incomplete") {
+      showIncompleteTasks();
+    } else if (showSearch && label === "Complete") {
+      showCompleteTasks();
     } else {
-      setFilteredTasks([...searchedTasks]);
+      setLabel("All");
     }
   }, [tasks, searchedTasks]);
-
-  // console.log(filteredTasks, tasks);
-
+  console.log(label);
   function onAddTask(sanitizedValue) {
+    setLabel("All");
+    dispatch(showSearchedTasks());
     setShowTask(!showTask);
     dispatch(addTasks(sanitizedValue));
     dispatch(setNumOfVisibleTasks(numOfVisibleTasks + 1));
@@ -65,22 +70,25 @@ const Content = () => {
   }
 
   function showAllTasks() {
-    if (searchedTasks !== 0) {
-      setFilteredTasks([...searchedTasks]);
-    } else {
-      setFilteredTasks([...tasks]);
-    }
+    setLabel("All");
+    setFilteredTasks(showSearch ? [...searchedTasks] : [...tasks]);
     dispatch(setNumOfVisibleTasks(initialNumOfTasks));
   }
 
   function showIncompleteTasks() {
-    const filteredTasks = tasks.filter((task) => !task.isCompleted);
+    setLabel("Incomplete");
+    const filteredTasks = showSearch
+      ? searchedTasks.filter((task) => !task.isCompleted)
+      : tasks.filter((task) => !task.isCompleted);
     setFilteredTasks(filteredTasks);
     dispatch(setNumOfVisibleTasks(initialNumOfTasks));
   }
 
   function showCompleteTasks() {
-    const filteredTasks = tasks.filter((task) => task.isCompleted);
+    setLabel("Complete");
+    const filteredTasks = showSearch
+      ? searchedTasks.filter((task) => task.isCompleted)
+      : tasks.filter((task) => task.isCompleted);
     setFilteredTasks(filteredTasks);
     dispatch(setNumOfVisibleTasks(initialNumOfTasks));
   }

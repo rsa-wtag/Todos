@@ -7,7 +7,7 @@ export const setSearchedTasks = (tasks) => {
   };
 };
 
-export const clearSearchedTasks = (tasks) => {
+export const clearSearchedTasks = () => {
   return {
     type: CLEAR_SEARCHED_TASKS,
   };
