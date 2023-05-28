@@ -7,12 +7,17 @@ const Button = ({
   iconSrc,
   altText,
   buttonClass,
+  isButtonDisabled,
   onButtonClick,
 }) => {
   const combinedClass = classNames("button", buttonClass);
 
   return (
-    <button className={combinedClass} onClick={onButtonClick}>
+    <button
+      className={combinedClass}
+      onClick={onButtonClick}
+      disabled={isButtonDisabled}
+    >
       <img src={iconSrc} alt={altText} /> <span>{buttonText}</span>
     </button>
   );
@@ -23,6 +28,7 @@ Button.defaultProps = {
   altText: null,
   buttonText: null,
   buttonClass: null,
+  isButtonDisabled: false,
   onButtonClick: () => {},
 };
 
@@ -31,6 +37,7 @@ Button.propTypes = {
   altText: PropTypes.string,
   buttonText: PropTypes.string,
   buttonClass: PropTypes.string,
+  isButtonDisabled: PropTypes.bool,
   onButtonClick: PropTypes.func,
 };
 

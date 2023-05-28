@@ -14,19 +14,18 @@ import "src/components/content/Content.component.scss";
 
 const Content = () => {
   const [showTask, setShowTask] = useState(false);
+  const [isButtonDisabled, setButtonDisabled] = useState(false);
   const dispatch = useDispatch();
 
   function onAddTask(sanitizedValue) {
     setShowTask(!showTask);
     dispatch(addTask(sanitizedValue));
+    setButtonDisabled(false);
   }
 
   function showInputField() {
-    showTask || setShowTask(!showTask);
-  }
-
-  function hideInputField() {
-    showTask && setShowTask(!showTask);
+    setShowTask(!showTask);
+    setButtonDisabled(true);
   }
 
   return (
@@ -37,10 +36,11 @@ const Content = () => {
         iconSrc={ICON_ADD}
         altText={ALT_ADD_TEXT}
         buttonClass={CLASS_BUTTON_CREATE}
+        isButtonDisabled={isButtonDisabled}
         onButtonClick={showInputField}
       />
       {showTask && (
-        <CreateTask onAddTask={onAddTask} onHideButtonClick={hideInputField} />
+        <CreateTask onAddTask={onAddTask} onHideButtonClick={showInputField} />
       )}
       <TaskItems />
     </div>

@@ -13,10 +13,10 @@ const TaskItem = ({ task }) => {
 
 TaskItem.propTypes = {
   task: PropTypes.shape({
-    id: PropTypes.string,
-    title: PropTypes.string,
-    createdAt: PropTypes.string,
-    isCompleted: PropTypes.bool,
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    isCompleted: PropTypes.bool.isRequired,
   }),
 };
 
