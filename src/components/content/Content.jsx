@@ -21,13 +21,21 @@ const Content = () => {
     (state) => state.numOfVisibleTasks.numOfVisibleTasks
   );
   const searchedTasks = useSelector((state) => state.searchedTasks);
-  console.log(searchedTasks);
+
+  // console.log(searchedTasks.length === 0);
   const [filteredTasks, setFilteredTasks] = useState([]);
   const initialNumOfTasks = 3;
 
   useEffect(() => {
-    setFilteredTasks([...tasks]);
-  }, [tasks]);
+    if (searchedTasks.length === 0) {
+      setFilteredTasks([...tasks]);
+      // console.log(tasks);
+    } else {
+      setFilteredTasks([...searchedTasks]);
+    }
+  }, [tasks, searchedTasks]);
+
+  // console.log(filteredTasks, tasks);
 
   function onAddTask(sanitizedValue) {
     setShowTask(!showTask);
@@ -57,7 +65,11 @@ const Content = () => {
   }
 
   function showAllTasks() {
-    setFilteredTasks([...tasks]);
+    if (searchedTasks !== 0) {
+      setFilteredTasks([...searchedTasks]);
+    } else {
+      setFilteredTasks([...tasks]);
+    }
     dispatch(setNumOfVisibleTasks(initialNumOfTasks));
   }
 
