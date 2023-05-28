@@ -1,5 +1,6 @@
 import Button from "src/components/button/Button";
-import { ICON_SEARCH, ALT_SEARCH_TEXT } from "src/utils/constants/constants";
+import { ALT_SEARCH_TEXT } from "src/utils/constants/constants";
+import { ICON_SEARCH } from "src/utils/constants/imageSources";
 import "src/components/search/Search.component.scss";
 
 const Search = () => {

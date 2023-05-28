@@ -7,9 +7,9 @@ import { addTask } from "src/store/actions/taskActions";
 import {
   ALT_ADD_TEXT,
   CLASS_BUTTON_CREATE,
-  ICON_ADD,
   TEXT_CREATE,
 } from "src/utils/constants/constants";
+import { ICON_ADD } from "src/utils/constants/imageSources";
 import "src/components/content/Content.component.scss";
 
 const Content = () => {

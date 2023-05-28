@@ -1,15 +1,15 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import Button from "src/components/button/Button.jsx";
-import sanitizeInput from "src/utils/helpers/sanitizeInput";
+import { sanitizeInput } from "src/utils/helpers/utilities";
 import {
   ALT_HIDE_BUTTON_TEXT,
   CLASS_TASK_INPUT,
-  ICON_BIN,
   TEXT_ADD,
   TEXT_ENTER,
   TYPE_TEXT,
 } from "src/utils/constants/constants";
+import { ICON_BIN } from "src/utils/constants/imageSources";
 import "src/components/tasks/CreateTask.component.scss";
 
 const CreateTask = ({ onAddTask, onHideButtonClick }) => {
