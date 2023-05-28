@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import "src/components/button/Button.component.scss";
 
-export const Button = ({
+const Button = ({
   buttonText,
   iconSrc,
   altText,
@@ -13,16 +13,16 @@ export const Button = ({
 
   return (
     <button className={combinedClass} onClick={onButtonClick}>
-      <img src={iconSrc} alt={altText} /> {buttonText}
+      <img src={iconSrc} alt={altText} /> <span>{buttonText}</span>
     </button>
   );
 };
 
 Button.defaultProps = {
-  iconSrc: "",
-  altText: "",
-  buttonText: "",
-  buttonClass: "",
+  iconSrc: null,
+  altText: null,
+  buttonText: null,
+  buttonClass: null,
   onButtonClick: () => {},
 };
 
@@ -33,3 +33,5 @@ Button.propTypes = {
   buttonClass: PropTypes.string,
   onButtonClick: PropTypes.func,
 };
+
+export default Button;

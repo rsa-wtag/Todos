@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import CreateTask from "src/components/tasks/CreateTask";
 import TaskItems from "src/components/tasks/TaskList";
-import { addTasks } from "src/store/actions/taskActions";
-import { Button } from "src/components/button/Button";
+import Button from "src/components/button/Button";
+import { addTask } from "src/store/actions/taskActions";
 import {
   ALT_ADD_TEXT,
   CLASS_BUTTON_CREATE,
@@ -18,11 +18,13 @@ const Content = () => {
 
   function onAddTask(sanitizedValue) {
     setShowTask(!showTask);
-    dispatch(addTasks(sanitizedValue));
+    dispatch(addTask(sanitizedValue));
   }
+
   function showInputField() {
     showTask || setShowTask(!showTask);
   }
+
   function hideInputField() {
     showTask && setShowTask(!showTask);
   }

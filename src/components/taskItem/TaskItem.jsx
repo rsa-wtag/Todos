@@ -16,6 +16,7 @@ TaskItem.propTypes = {
     id: PropTypes.string,
     title: PropTypes.string,
     createdAt: PropTypes.string,
+    isCompleted: PropTypes.bool,
   }),
 };
 

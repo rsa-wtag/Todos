@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Button } from "src/components/button/Button";
+import Button from "src/components/button/Button";
 import {
   ICON_MARK,
   ICON_PEN,

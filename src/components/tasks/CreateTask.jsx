@@ -1,19 +1,25 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import { Button } from "src/components/button/Button.jsx";
+import Button from "src/components/button/Button.jsx";
 import sanitizeInput from "src/utils/helpers/sanitizeInput";
+import {
+  ALT_HIDE_BUTTON_TEXT,
+  CLASS_TASK_INPUT,
+  ICON_BIN,
+  TEXT_ADD,
+  TEXT_ENTER,
+  TYPE_TEXT,
+} from "src/utils/constants/constants";
 import "src/components/tasks/CreateTask.component.scss";
-import { ALT_HIDE_BUTTON_TEXT, ICON_BIN } from "src/utils/constants/constants";
 
 const CreateTask = ({ onAddTask, onHideButtonClick }) => {
   const [task, setTask] = useState("");
   const inputRef = useRef(null);
+  useEffect(focusInputRef, []);
 
   function focusInputRef() {
     inputRef.current.focus();
   }
-
-  useEffect(focusInputRef, []);
 
   function handleChange(event) {
     setTask(event.target.value);
@@ -24,11 +30,11 @@ const CreateTask = ({ onAddTask, onHideButtonClick }) => {
     if (sanitizedValue) {
       onAddTask(sanitizedValue);
     }
-    setTask("");
+    setTask(null);
   }
 
   const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === TEXT_ENTER) {
       event.preventDefault();
       handleAddTask();
     }
@@ -37,14 +43,14 @@ const CreateTask = ({ onAddTask, onHideButtonClick }) => {
   return (
     <Fragment>
       <input
-        type="text"
-        className="task-input"
+        type={TYPE_TEXT}
+        className={CLASS_TASK_INPUT}
         value={task}
         ref={inputRef}
         onChange={handleChange}
         onKeyPress={handleKeyPress}
       />
-      <button onClick={handleAddTask}>Add</button>
+      <Button buttonText={TEXT_ADD} onButtonClick={handleAddTask} />
       <Button
         iconSrc={ICON_BIN}
         altText={ALT_HIDE_BUTTON_TEXT}
