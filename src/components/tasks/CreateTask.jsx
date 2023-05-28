@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 import { Button } from "src/components/button/Button.jsx";
 import sanitizeInput from "src/utils/helpers/sanitizeInput";
 import { ALT_HIDE_BUTTON_TEXT, ICON_BIN } from "src/utils/constants/constants";
@@ -23,6 +24,8 @@ const CreateTask = ({ onAddTask, onHideButtonClick }) => {
     const sanitizedValue = sanitizeInput(task);
     if (sanitizedValue) {
       onAddTask(sanitizedValue);
+    } else {
+      toast.error("Something went wrong!", { autoClose: 2000 });
     }
     setTask("");
   }

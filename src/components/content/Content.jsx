@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import CreateTask from "src/components/tasks/CreateTask";
 import TaskList from "src/components/tasks/TaskList";
 import { addTasks } from "src/store/actions/taskActions";
@@ -38,12 +39,14 @@ const Content = () => {
       setLabel("All");
     }
   }, [tasks, searchedTasks]);
+
   function onAddTask(sanitizedValue) {
     setLabel("All");
     dispatch(showSearchedTasks());
     setShowTask(!showTask);
     dispatch(addTasks(sanitizedValue));
     dispatch(setNumOfVisibleTasks(numOfVisibleTasks + 1));
+    toast.success("Card added successfully!", { autoClose: 2000 });
   }
 
   function showInputField() {

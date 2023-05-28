@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Fragment } from "react";
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 import { Button } from "src/components/button/Button";
 import { deleteTask, taskDone } from "src/store/actions/taskActions";
 import {
@@ -25,6 +26,7 @@ const Actions = ({ task, changeEditableState }) => {
     dispatch(
       setNumOfVisibleTasks(Math.min(tasks.length - 1, numOfVisibleTasks))
     );
+    toast.success("Card deleted successfully!", { autoClose: 2000 });
   }
 
   function onTaskDone() {
