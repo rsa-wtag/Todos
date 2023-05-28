@@ -25,7 +25,6 @@ const Content = () => {
   const searchedTasks = useSelector((state) => state.searchedTasks);
   const showSearch = useSelector((state) => state.showSearchedTasks);
 
-  console.log(showSearch);
   const [filteredTasks, setFilteredTasks] = useState([]);
   const initialNumOfTasks = 3;
 
@@ -39,7 +38,6 @@ const Content = () => {
       setLabel("All");
     }
   }, [tasks, searchedTasks]);
-  console.log(label);
   function onAddTask(sanitizedValue) {
     setLabel("All");
     dispatch(showSearchedTasks());
