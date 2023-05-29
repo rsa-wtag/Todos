@@ -7,7 +7,7 @@ const TaskItem = ({ task }) => {
     <div className={styles["task-list__item"]}>
       <h3>{task.title}</h3>
       <p>Created At: {task.createdAt}</p>
-      <Actions />
+      <Actions taskId={task.id} />
     </div>
   );
 };
