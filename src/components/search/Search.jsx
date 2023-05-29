@@ -1,5 +1,5 @@
 import Button from "src/components/button/Button";
-import { ALT_SEARCH_TEXT } from "src/utils/constants/constants";
+import { ALT_SEARCH_TEXT } from "src/utils/constants/altTexts";
 import { ICON_SEARCH } from "src/utils/constants/imageSources";
 import styles from "src/components/search/Search.module.scss";
 

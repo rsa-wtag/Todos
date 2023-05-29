@@ -2,17 +2,14 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import Button from "src/components/button/Button.jsx";
 import { sanitizeInput } from "src/utils/helpers/utilities";
-import {
-  ALT_HIDE_BUTTON_TEXT,
-  CLASS_TASK_INPUT,
-  TEXT_ADD,
-  TEXT_ENTER,
-  TYPE_TEXT,
-} from "src/utils/constants/constants";
+import { TEXT_ADD, TEXT_ENTER } from "src/utils/constants/constants";
+import { ALT_HIDE_BUTTON_TEXT } from "src/utils/constants/altTexts";
+import { TYPE_TEXT } from "src/utils/constants/typeTexts";
+import { CLASS_TASK_INPUT } from "src/utils/constants/classNames";
 import { ICON_BIN } from "src/utils/constants/imageSources";
 import styles from "src/components/tasks/CreateTask.module.scss";
 
-const CreateTask = ({ onAddTask, onHideButtonClick }) => {
+const CreateTask = ({ onAddTask, onHideTask }) => {
   const [task, setTask] = useState("");
   const inputRef = useRef(null);
   useEffect(focusInputRef, []);
@@ -30,7 +27,7 @@ const CreateTask = ({ onAddTask, onHideButtonClick }) => {
     if (sanitizedValue) {
       onAddTask(sanitizedValue);
     }
-    setTask(null);
+    setTask("");
   }
 
   const handleKeyPress = (event) => {
@@ -54,7 +51,7 @@ const CreateTask = ({ onAddTask, onHideButtonClick }) => {
       <Button
         iconSrc={ICON_BIN}
         altText={ALT_HIDE_BUTTON_TEXT}
-        onButtonClick={onHideButtonClick}
+        onButtonClick={onHideTask}
       />
     </Fragment>
   );
@@ -62,7 +59,7 @@ const CreateTask = ({ onAddTask, onHideButtonClick }) => {
 
 CreateTask.propTypes = {
   onAddTask: PropTypes.func.isRequired,
-  onHideButtonClick: PropTypes.func.isRequired,
+  onHideTask: PropTypes.func.isRequired,
 };
 
 export default CreateTask;

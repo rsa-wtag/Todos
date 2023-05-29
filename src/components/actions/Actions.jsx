@@ -4,7 +4,7 @@ import {
   ALT_MARK_TEXT,
   ALT_EDIT_TEXT,
   ALT_DELETE_TEXT,
-} from "src/utils/constants/constants";
+} from "src/utils/constants/altTexts";
 import {
   ICON_MARK,
   ICON_PEN,
@@ -12,11 +12,13 @@ import {
 } from "src/utils/constants/imageSources";
 
 const Actions = () => {
+  const icons = [ICON_MARK, ICON_PEN, ICON_BIN];
+  const altTexts = [ALT_MARK_TEXT, ALT_EDIT_TEXT, ALT_DELETE_TEXT];
   return (
     <Fragment>
-      <Button iconSrc={ICON_MARK} altText={ALT_MARK_TEXT} />
-      <Button iconSrc={ICON_PEN} altText={ALT_EDIT_TEXT} />
-      <Button iconSrc={ICON_BIN} altText={ALT_DELETE_TEXT} />
+      {icons.map((iconSrc, index) => (
+        <Button key={index} iconSrc={iconSrc} altText={altTexts[index]} />
+      ))}
     </Fragment>
   );
 };

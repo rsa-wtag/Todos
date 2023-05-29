@@ -4,11 +4,9 @@ import CreateTask from "src/components/tasks/CreateTask";
 import TaskItems from "src/components/tasks/TaskList";
 import Button from "src/components/button/Button";
 import { addTask } from "src/store/actions/taskActions";
-import {
-  ALT_ADD_TEXT,
-  CLASS_BUTTON_CREATE,
-  TEXT_CREATE,
-} from "src/utils/constants/constants";
+import { TEXT_CREATE } from "src/utils/constants/constants";
+import { CLASS_BUTTON_CREATE } from "src/utils/constants/classNames";
+import { ALT_ADD_TEXT } from "src/utils/constants/altTexts";
 import { ICON_ADD } from "src/utils/constants/imageSources";
 import styles from "src/components/content/Content.module.scss";
 
@@ -17,13 +15,13 @@ const Content = () => {
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const dispatch = useDispatch();
 
-  function onAddTask(sanitizedValue) {
+  function handleAddTask(sanitizedValue) {
     setShowTask(!showTask);
     dispatch(addTask(sanitizedValue));
     setButtonDisabled(false);
   }
 
-  function showInputField() {
+  function toggleInputField() {
     setButtonDisabled(!showTask);
     setShowTask(!showTask);
   }
@@ -37,10 +35,10 @@ const Content = () => {
         altText={ALT_ADD_TEXT}
         buttonClass={styles[CLASS_BUTTON_CREATE]}
         isButtonDisabled={isButtonDisabled}
-        onButtonClick={showInputField}
+        onButtonClick={toggleInputField}
       />
       {showTask && (
-        <CreateTask onAddTask={onAddTask} onHideButtonClick={showInputField} />
+        <CreateTask onAddTask={handleAddTask} onHideTask={toggleInputField} />
       )}
       <TaskItems />
     </div>

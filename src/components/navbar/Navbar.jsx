@@ -1,5 +1,5 @@
 import Search from "src/components/search/Search";
-import { ALT_NAV_LOGO_TEXT } from "src/utils/constants/constants";
+import { ALT_NAV_LOGO_TEXT } from "src/utils/constants/altTexts";
 import { NAV_LOGO } from "src/utils/constants/imageSources";
 import styles from "src/components/navbar/Navbar.module.scss";
 
