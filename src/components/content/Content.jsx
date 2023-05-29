@@ -10,7 +10,7 @@ import {
   TEXT_CREATE,
 } from "src/utils/constants/constants";
 import { ICON_ADD } from "src/utils/constants/imageSources";
-import "src/components/content/Content.component.scss";
+import styles from "src/components/content/Content.module.scss";
 
 const Content = () => {
   const [showTask, setShowTask] = useState(false);
@@ -29,13 +29,13 @@ const Content = () => {
   }
 
   return (
-    <div className="content">
+    <div className={styles["content"]}>
       <h1>Add Tasks</h1>
       <Button
         buttonText={TEXT_CREATE}
         iconSrc={ICON_ADD}
         altText={ALT_ADD_TEXT}
-        buttonClass={CLASS_BUTTON_CREATE}
+        buttonClass={styles[CLASS_BUTTON_CREATE]}
         isButtonDisabled={isButtonDisabled}
         onButtonClick={showInputField}
       />

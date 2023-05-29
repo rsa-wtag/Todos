@@ -2,10 +2,6 @@
 @import "src/assets/styles/_variables.scss";
 
 .task-list {
-  display: flex;
-  list-style-type: none;
-  padding-inline-start: $space-0;
-
   &__item {
     background: $color-white;
     border: $space-xs solid $color-border;

@@ -10,7 +10,7 @@ import {
   TYPE_TEXT,
 } from "src/utils/constants/constants";
 import { ICON_BIN } from "src/utils/constants/imageSources";
-import "src/components/tasks/CreateTask.component.scss";
+import styles from "src/components/tasks/CreateTask.module.scss";
 
 const CreateTask = ({ onAddTask, onHideButtonClick }) => {
   const [task, setTask] = useState("");
@@ -44,7 +44,7 @@ const CreateTask = ({ onAddTask, onHideButtonClick }) => {
     <Fragment>
       <input
         type={TYPE_TEXT}
-        className={CLASS_TASK_INPUT}
+        className={styles[CLASS_TASK_INPUT]}
         value={task}
         ref={inputRef}
         onChange={handleChange}

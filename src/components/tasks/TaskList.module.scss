@@ -1,0 +1,7 @@
+@import "src/assets/styles/_variables.scss";
+
+.task-list {
+  display: flex;
+  list-style-type: none;
+  padding-inline-start: $space-0;
+}
