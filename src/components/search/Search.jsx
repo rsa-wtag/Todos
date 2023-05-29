@@ -1,10 +1,12 @@
-import { ICON_SEARCH, ALT_SEARCH_TEXT } from "src/utils/constants/constants";
-import "src/components/search/Search.component.scss";
+import Button from "src/components/button/Button";
+import { ALT_SEARCH_TEXT } from "src/utils/constants/altTexts";
+import { ICON_SEARCH } from "src/utils/constants/imageSources";
+import styles from "src/components/search/Search.module.scss";
 
 const Search = () => {
   return (
-    <div className="search">
-      <img src={ICON_SEARCH} alt={ALT_SEARCH_TEXT} />
+    <div className={styles["search"]}>
+      <Button iconSrc={ICON_SEARCH} altText={ALT_SEARCH_TEXT} />
     </div>
   );
 };

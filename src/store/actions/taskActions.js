@@ -1,7 +1,7 @@
 import { ADD_TASK, REMOVE_TASK } from "src/store";
-import { createDate } from "src/utils/helpers/createDate";
+import { createDate } from "src/utils/helpers/utilities";
 
-export const addTasks = (title) => ({
+export const addTask = (title) => ({
   type: ADD_TASK,
   payload: {
     id: Date.now().toString(),

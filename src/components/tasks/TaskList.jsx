@@ -1,12 +1,11 @@
 import { useSelector } from "react-redux";
 import TaskItem from "src/components/taskItem/TaskItem";
-import "src/components/tasks/TaskList.component.scss";
+import styles from "src/components/tasks/TaskList.module.scss";
 
 const TaskList = () => {
-  const tasks = useSelector((state) => state.todos);
-
+  const tasks = useSelector(({ todos }) => todos);
   return (
-    <div className="task-list">
+    <div className={styles["task-list"]}>
       {tasks.map((task) => {
         return <TaskItem key={task.id} task={task} />;
       })}

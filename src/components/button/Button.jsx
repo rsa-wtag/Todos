@@ -1,28 +1,34 @@
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import "src/components/button/Button.component.scss";
+import styles from "src/components/button/Button.module.scss";
 
-export const Button = ({
+const Button = ({
   buttonText,
   iconSrc,
   altText,
   buttonClass,
+  isButtonDisabled,
   onButtonClick,
 }) => {
-  const combinedClass = classNames("button", buttonClass);
+  const combinedClass = classNames(styles["button"], buttonClass);
 
   return (
-    <button className={combinedClass} onClick={onButtonClick}>
-      <img src={iconSrc} alt={altText} /> {buttonText}
+    <button
+      className={combinedClass}
+      onClick={onButtonClick}
+      disabled={isButtonDisabled}
+    >
+      <img src={iconSrc} alt={altText} /> <span>{buttonText}</span>
     </button>
   );
 };
 
 Button.defaultProps = {
-  iconSrc: "",
-  altText: "",
-  buttonText: "",
-  buttonClass: "",
+  iconSrc: null,
+  altText: null,
+  buttonText: null,
+  buttonClass: null,
+  isButtonDisabled: false,
   onButtonClick: () => {},
 };
 
@@ -31,5 +37,8 @@ Button.propTypes = {
   altText: PropTypes.string,
   buttonText: PropTypes.string,
   buttonClass: PropTypes.string,
+  isButtonDisabled: PropTypes.bool,
   onButtonClick: PropTypes.func,
 };
+
+export default Button;
