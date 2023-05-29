@@ -1,0 +1,22 @@
+.navbar {
+  background-color: $color-white;
+  color: $color-primary;
+  display: flex;
+  justify-content: space-between;
+  padding: $space-5 $space-200;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+
+    &--img {
+      padding-right: $space-10;
+      width: $space-30;
+    }
+
+    &--text {
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+}
