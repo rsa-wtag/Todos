@@ -1,11 +1,11 @@
 .content {
-  padding: $space-md $space-xxl;
+  padding: $space-10 $space-200;
 
   &__button--create {
     background: $color-primary;
     border: $space-0;
-    border-radius: $space-sm;
+    border-radius: $space-5;
     color: $color-white;
-    padding: $space-md;
+    padding: $space-10;
   }
 }

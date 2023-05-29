@@ -5,7 +5,6 @@ import { sanitizeInput } from "src/utils/helpers/utilities";
 import { TEXT_ADD, TEXT_ENTER } from "src/utils/constants/constants";
 import { ALT_HIDE_BUTTON_TEXT } from "src/utils/constants/altTexts";
 import { TYPE_TEXT } from "src/utils/constants/typeTexts";
-import { CLASS_TASK_INPUT } from "src/utils/constants/classNames";
 import { ICON_BIN } from "src/utils/constants/imageSources";
 import styles from "src/components/tasks/CreateTask.module.scss";
 
@@ -24,6 +23,7 @@ const CreateTask = ({ onAddTask, onHideTask }) => {
 
   function handleAddTask() {
     const sanitizedValue = sanitizeInput(task);
+
     if (sanitizedValue) {
       onAddTask(sanitizedValue);
     }
@@ -41,7 +41,7 @@ const CreateTask = ({ onAddTask, onHideTask }) => {
     <Fragment>
       <input
         type={TYPE_TEXT}
-        className={styles[CLASS_TASK_INPUT]}
+        className={styles["task-input"]}
         value={task}
         ref={inputRef}
         onChange={handleChange}

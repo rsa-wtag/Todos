@@ -1,23 +1,18 @@
 import Search from "src/components/search/Search";
 import { ALT_NAV_LOGO_TEXT } from "src/utils/constants/altTexts";
 import { NAV_LOGO } from "src/utils/constants/imageSources";
-import {
-  CLASS_NAVBAR,
-  CLASS_NAVBAR_LOGO,
-  CLASS_NAVBAR_LOGO_IMG,
-} from "src/utils/constants/classNames";
 import styles from "src/components/navbar/Navbar.module.scss";
 
 const Navbar = () => {
   return (
-    <div className={styles[CLASS_NAVBAR]}>
-      <div className={styles[CLASS_NAVBAR_LOGO]}>
+    <div className={styles["navbar"]}>
+      <div className={styles["navbar__logo"]}>
         <img
           src={NAV_LOGO}
           alt={ALT_NAV_LOGO_TEXT}
-          className={styles[CLASS_NAVBAR_LOGO_IMG]}
+          className={styles["navbar__logo--img"]}
         />
-        <h1>Todos</h1>
+        <span className={styles["navbar__logo--text"]}>Todos</span>
       </div>
       <Search />
     </div>

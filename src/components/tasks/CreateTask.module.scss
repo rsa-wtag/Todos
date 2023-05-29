@@ -1,10 +1,10 @@
 .task-input {
   background: $color-white;
-  border: $space-xs solid $color-border;
-  border-radius: $space-sm;
+  border: $space-1 solid $color-border;
+  border-radius: $space-5;
   box-sizing: border-box;
-  height: $space-xxxl;
-  margin: $space-md $space-md $space-md $space-0;
-  padding: $space-md;
-  width: $space-4xl;
+  height: $space-200;
+  margin: $space-10 $space-10 $space-10 $space-0;
+  padding: $space-10;
+  width: $space-350;
 }

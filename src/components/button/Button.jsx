@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { CLASS_BUTTON } from "src/utils/constants/classNames";
 import styles from "src/components/button/Button.module.scss";
 
 const Button = ({
@@ -11,7 +10,7 @@ const Button = ({
   isButtonDisabled,
   onButtonClick,
 }) => {
-  const combinedClass = classNames(styles[CLASS_BUTTON], buttonClass);
+  const combinedClass = classNames(styles["button"], buttonClass);
 
   return (
     <button
