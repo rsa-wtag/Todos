@@ -6,8 +6,7 @@ export const addTask = (title) => {
     type: ADD_TASK,
     payload: {
       id: Date.now().toString(),
-      isCompleted: false,
-      title: title,
+      title,
       createdAt: createDate(),
     },
   };
