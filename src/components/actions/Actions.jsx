@@ -15,9 +15,15 @@ import {
 } from "src/utils/constants/imageSources";
 
 const Actions = (taskId) => {
-  const icons = [ICON_MARK, ICON_PEN, ICON_BIN];
-  const altTexts = [ALT_MARK_TEXT, ALT_EDIT_TEXT, ALT_DELETE_TEXT];
-  const clickFunctions = [() => {}, () => {}, onDeleteTask];
+  const buttonProps = [
+    { iconSrc: ICON_MARK, altText: ALT_MARK_TEXT },
+    { iconSrc: ICON_PEN, altText: ALT_EDIT_TEXT },
+    {
+      iconSrc: ICON_BIN,
+      altText: ALT_DELETE_TEXT,
+      clickFunction: onDeleteTask,
+    },
+  ];
   const dispatch = useDispatch();
 
   function onDeleteTask() {
@@ -26,12 +32,12 @@ const Actions = (taskId) => {
 
   return (
     <Fragment>
-      {icons.map((iconSrc, index) => (
+      {buttonProps.map(({ iconSrc, altText, clickFunction }, index) => (
         <Button
           key={index}
           iconSrc={iconSrc}
-          altText={altTexts[index]}
-          onButtonClick={clickFunctions[index]}
+          altText={altText}
+          onButtonClick={clickFunction}
         />
       ))}
     </Fragment>
