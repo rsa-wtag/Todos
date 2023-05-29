@@ -14,6 +14,7 @@ import {
 const Actions = () => {
   const icons = [ICON_MARK, ICON_PEN, ICON_BIN];
   const altTexts = [ALT_MARK_TEXT, ALT_EDIT_TEXT, ALT_DELETE_TEXT];
+
   return (
     <Fragment>
       {icons.map((iconSrc, index) => (

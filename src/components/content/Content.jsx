@@ -5,7 +5,10 @@ import TaskItems from "src/components/tasks/TaskList";
 import Button from "src/components/button/Button";
 import { addTask } from "src/store/actions/taskActions";
 import { TEXT_CREATE } from "src/utils/constants/constants";
-import { CLASS_BUTTON_CREATE } from "src/utils/constants/classNames";
+import {
+  CLASS_BUTTON_CREATE,
+  CLASS_CONTENT,
+} from "src/utils/constants/classNames";
 import { ALT_ADD_TEXT } from "src/utils/constants/altTexts";
 import { ICON_ADD } from "src/utils/constants/imageSources";
 import styles from "src/components/content/Content.module.scss";
@@ -27,7 +30,7 @@ const Content = () => {
   }
 
   return (
-    <div className={styles["content"]}>
+    <div className={styles[CLASS_CONTENT]}>
       <h1>Add Tasks</h1>
       <Button
         buttonText={TEXT_CREATE}
