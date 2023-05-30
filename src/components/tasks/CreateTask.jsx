@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import Button from "src/components/button/Button.jsx";
+import Button from "src/components/button/Button";
 import { sanitizeInput } from "src/utils/helpers/utilities";
 import { TEXT_ADD, TEXT_ENTER } from "src/utils/constants/constants";
 import { ALT_HIDE_BUTTON_TEXT } from "src/utils/constants/altTexts";

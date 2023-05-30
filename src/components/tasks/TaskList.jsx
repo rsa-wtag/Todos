@@ -4,6 +4,7 @@ import styles from "src/components/tasks/TaskList.module.scss";
 
 const TaskList = () => {
   const tasks = useSelector(({ todos }) => todos);
+
   return (
     <div className={styles["task-list"]}>
       {tasks.map((task) => {
