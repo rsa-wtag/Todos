@@ -1,5 +1,6 @@
-import { parse, differenceInDays } from "date-fns";
+// import { parse, differenceInDays } from "date-fns";
 import { ADD_TASK, COMPLETE_TASK, REMOVE_TASK } from "src/store";
+import { timeToCompleteTask } from "src/utils/helpers/utilities";
 
 const initialState = [];
 const taskReducer = (state = initialState, action) => {
@@ -11,11 +12,9 @@ const taskReducer = (state = initialState, action) => {
     case COMPLETE_TASK:
       return state.map((task) => {
         if (task.id === action.payload) {
-          const createdAt = parse(task.createdAt, "dd.MM.yy", new Date());
-          const currentDate = new Date();
-          const daysToComplete = differenceInDays(currentDate, createdAt) + 1;
+          const daysToComplete = timeToCompleteTask(task.createdAt);
 
-          return { ...task, isCompleted: true, daysToComplete: daysToComplete };
+          return { ...task, isCompleted: true, daysToComplete };
         }
         return task;
       });

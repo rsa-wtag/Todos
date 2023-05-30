@@ -8,5 +8,10 @@
     margin: $space-10 $space-10 $space-10 $space-0;
     padding: $space-10;
     width: $space-350;
+
+    &--completed {
+      text-decoration: line-through;
+      color: $color-green;
+    }
   }
 }
