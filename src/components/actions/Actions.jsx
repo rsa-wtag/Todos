@@ -14,18 +14,18 @@ import {
   ICON_BIN,
 } from "src/utils/constants/imageSources";
 
-const Actions = (task) => {
+const Actions = ({ task }) => {
   const buttonProps = [
     {
       iconSrc: ICON_MARK,
       altText: ALT_MARK_TEXT,
       clickFunction: onTaskDone,
-      showButton: !task.task.isCompleted,
+      showButton: !task.isCompleted,
     },
     {
       iconSrc: ICON_PEN,
       altText: ALT_EDIT_TEXT,
-      showButton: !task.task.isCompleted,
+      showButton: !task.isCompleted,
     },
     {
       iconSrc: ICON_BIN,
@@ -37,11 +37,11 @@ const Actions = (task) => {
   const dispatch = useDispatch();
 
   function onDeleteTask() {
-    dispatch(deleteTask(task.task.id));
+    dispatch(deleteTask(task.id));
   }
 
   function onTaskDone() {
-    dispatch(taskDone(task.task.id));
+    dispatch(taskDone(task.id));
   }
 
   return (
@@ -58,9 +58,14 @@ const Actions = (task) => {
           )
       )}
 
-      {task.task.isCompleted && (
+      {task.isCompleted && (
         <div>
-          <span>Completed in {task.task.daysToComplete} day</span>
+          <span>
+            Completed in
+            {" " +
+              task.daysToComplete +
+              (task.daysToComplete > 1 ? " days" : " day")}
+          </span>
         </div>
       )}
     </Fragment>
