@@ -1,10 +1,10 @@
 import React from "react";
-import "src/index.css";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import { store } from "src/store/store";
+import store from "src/store/store";
 import App from "src/App";
 import reportWebVitals from "src/reportWebVitals";
+import "src/index.scss";
 
 const container = document.getElementById("root");
 const root = createRoot(container);

@@ -4,3 +4,7 @@ export const createDate = () => {
     currentDate.getFullYear()
   ).slice(-2)}`;
 };
+
+export const sanitizeInput = (input) => {
+  return input.replaceAll(/<\/?[^>]+(>|$)/gi, "").trim();
+};

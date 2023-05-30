@@ -1,19 +1,22 @@
-@import "src/assets/styles/_variables.scss";
-
 .navbar {
   background-color: $color-white;
   color: $color-primary;
   display: flex;
   justify-content: space-between;
-  padding: 0.313rem 12.5rem;
+  padding: $space-5 $space-200;
 
   &__logo {
     display: flex;
     align-items: center;
 
-    &-img {
-      padding-right: 0.625rem;
-      width: 1.875rem;
+    &--img {
+      padding-right: $space-10;
+      width: $space-30;
+    }
+
+    &--text {
+      font-size: 30px;
+      font-weight: bold;
     }
   }
 }
